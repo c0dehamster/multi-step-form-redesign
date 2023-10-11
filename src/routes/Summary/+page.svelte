@@ -1,11 +1,13 @@
 <script>
-	import iconArrowLeft from "../lib/images/icon-arrow-left.svg"
+	import iconArrowLeft from "../../lib/images/icon-arrow-left.svg"
 </script>
 
 <div class="page">
 	<header class="page__header">
-		<h1 class="page__title">...</h1>
-		<p class="page__description">...</p>
+		<h1 class="page__title">Finishing up</h1>
+		<p class="page__description">
+			Double-check everything looks OK before confirming.
+		</p>
 	</header>
 
 	<form class="form">

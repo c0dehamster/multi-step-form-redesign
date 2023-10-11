@@ -1,6 +1,6 @@
 <script>
-	import iconArrowLeft from "../lib/images/icon-arrow-left.svg"
-	import iconArrowRight from "../lib/images/icon-arrow-right.svg"
+	import iconArrowLeft from "../../lib/images/icon-arrow-left.svg"
+	import iconArrowRight from "../../lib/images/icon-arrow-right.svg"
 </script>
 
 <div class="page">

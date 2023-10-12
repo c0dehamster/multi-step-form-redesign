@@ -129,6 +129,18 @@ ol {
 	list-style: none;
 }
 
+a,
+button {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	position: relative;
+
+	color: inherit;
+}
+
 .button {
 	position: relative;
 

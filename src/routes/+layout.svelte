@@ -1,4 +1,6 @@
 <script lang="ts">
+	import "./style.css"
+
 	import Navigation from "./Navigation.svelte"
 </script>
 

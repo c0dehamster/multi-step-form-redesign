@@ -90,15 +90,29 @@ select {
 :root {
 	--color-primary-400: hsl(308, 100%, 42%);
 	--color-secondary-400: hsl(276, 100%, 16%);
+	--color-accent-400: hsl(335, 100%, 42%);
 
 	--color-neutral-100: hsl(246, 100%, 91%);
 	--color-neutral-800: hsl(260, 84%, 5%);
 	--color-neutral-900: hsl(260, 80%, 2%);
 
-	--gradient-background-main: radial-gradient(
+	/* Default color scheme */
+
+	--background-app: radial-gradient(
 		var(--color-neutral-800),
 		var(--color-neutral-900)
 	);
+
+	--color-background-page: var(--color-neutral-900);
+	--color-background-card: var(--color-neutral-800);
+	--color-background-highlight: var(--color-secondary-400);
+
+	--color-text-main: var(--color-neutral-100);
+
+	--color-active: var(--color-primary-400);
+	--color-text-error: var(--color-accent-400);
+
+	/* Typography */
 
 	--font-size-100: 0.75rem;
 	--font-size-200: 0.875rem;
@@ -122,6 +136,9 @@ select {
 
 body {
 	font-family: "Montserrat", sans-serif; /* My favorite font */
+}
+
+.app--light {
 }
 
 h1,

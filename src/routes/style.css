@@ -93,6 +93,7 @@ select {
 	--color-accent-400: hsl(335, 100%, 42%);
 
 	--color-neutral-100: hsl(246, 100%, 91%);
+	--color-neutral-700: hsl(260, 84%, 5%, 0.4);
 	--color-neutral-800: hsl(260, 84%, 5%);
 	--color-neutral-900: hsl(260, 80%, 2%);
 
@@ -104,7 +105,7 @@ select {
 	);
 
 	--color-background-page: var(--color-neutral-900);
-	--color-background-card: var(--color-neutral-800);
+	--color-background-card: var(--color-neutral-700);
 	--color-background-highlight: var(--color-secondary-400);
 
 	--color-text-main: var(--color-neutral-100);

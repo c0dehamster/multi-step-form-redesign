@@ -1,10 +1,13 @@
 <script lang="ts">
 	import "./style.css"
 
+	import backgroundPatternMobile from "../lib/images/background-pattern-mobile.svg"
+	import backgroundPatternDesktop from "../lib/images/background-pattern-desktop.svg"
+
 	import Navigation from "./Navigation.svelte"
 </script>
 
-<div class="app">
+<div class="app" style="--background-mobile: url({backgroundPatternMobile});">
 	<aside class="navigation">
 		<Navigation />
 	</aside>
@@ -26,7 +29,10 @@
 			"main";
 		justify-items: center;
 
-		/* background: var(--gradient-background-main); */
+		color: var(--color-text-main);
+		background: var(--background-mobile), var(--background-app);
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 
 	.navigation {

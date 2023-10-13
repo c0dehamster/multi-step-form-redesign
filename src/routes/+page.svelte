@@ -55,9 +55,11 @@
 
 	.form {
 		width: 100%;
-		padding: 2rem;
+		padding: 2.5rem;
 		display: grid;
-		gap: 1rem;
+		gap: 2.5rem;
+
+		background-color: var(--color-background-card);
 	}
 
 	.input-wrapper {
@@ -67,10 +69,14 @@
 		grid-template-areas:
 			"label error"
 			"input input";
+		gap: 1rem;
+
+		--_color: var(--color-text-main);
 	}
 
 	.label {
 		grid-area: label;
+		color: var(--_color);
 	}
 
 	.error {
@@ -78,9 +84,27 @@
 
 		justify-self: end;
 		text-align: end;
+
+		color: var(--color-text-error);
 	}
 
 	.input {
 		grid-area: input;
+
+		padding-block: 0.5rem;
+
+		text-align: center;
+
+		background-color: transparent;
+		border: none;
+		outline: none;
+		border-bottom: 1px solid var(--_color);
 	}
+
+	.input::placeholder {
+		color: var(--_color);
+		opacity: 0.25;
+	}
+
+	/* Active states */
 </style>

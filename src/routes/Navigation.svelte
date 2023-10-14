@@ -42,12 +42,17 @@
 	.nav__list {
 		position: relative;
 
+		width: 100%;
+		padding: 2rem;
+
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		gap: 2rem;
 
 		counter-reset: navigation;
+
+		border-bottom: 1px solid var(--color-text-main);
 	}
 
 	.nav__list-item {
@@ -60,12 +65,27 @@
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+
+		--_color: var(--color-text-main);
+	}
+
+	.nav__link:hover,
+	.nav__link:focus,
+	.nav__link:active {
+		--_color: var(--color-active);
 	}
 
 	.nav__link::before {
 		content: counter(navigation);
 
+		color: var(--_color);
+
 		font-size: var(--font-size-700);
+		line-height: 1;
+	}
+
+	.nav__label {
+		color: var(--_color);
 	}
 
 	@media screen and (width < 45rem) {

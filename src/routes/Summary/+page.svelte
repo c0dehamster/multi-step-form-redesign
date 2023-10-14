@@ -1,5 +1,13 @@
 <script>
 	import iconArrowLeft from "../../lib/images/icon-arrow-left.svg"
+
+	import { createForm } from "felte"
+
+	const { form } = createForm({
+		onSubmit: (values) => {
+			console.log(values)
+		},
+	})
 </script>
 
 <div class="page">
@@ -10,7 +18,7 @@
 		</p>
 	</header>
 
-	<form class="form">
+	<form use:form class="form">
 		<div class="summary">
 			<div class="plan">
 				<p class="plan__name">Arcade (yearly)</p>

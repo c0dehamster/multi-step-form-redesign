@@ -1,5 +1,13 @@
 <script>
 	import iconArrowRight from "../lib/images/icon-arrow-right.svg"
+
+	import { createForm } from "felte"
+
+	const { form } = createForm({
+		onSubmit: (values) => {
+			console.log(values)
+		},
+	})
 </script>
 
 <div class="page">
@@ -10,7 +18,7 @@
 		</p>
 	</header>
 
-	<form class="form">
+	<form use:form class="form">
 		<div class="input-wrapper">
 			<label for="" class="label">Name</label>
 			<input type="text" class="input" placeholder="e.g. Stephen King" />
@@ -57,18 +65,8 @@
 </div>
 
 <style>
-	.page {
-		padding-block: 3rem;
-
-		display: grid;
-		justify-items: center;
-		gap: 1.5rem;
-	}
-
 	.form {
-		width: 100%;
-		padding: 2.5rem;
-		display: grid;
+		padding-block: 2.5rem;
 		gap: 2.5rem;
 	}
 

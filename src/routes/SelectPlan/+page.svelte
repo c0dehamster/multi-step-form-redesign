@@ -1,6 +1,14 @@
-<script>
+<script lang="ts">
 	import iconArrowLeft from "../../lib/images/icon-arrow-left.svg"
 	import iconArrowRight from "../../lib/images/icon-arrow-right.svg"
+
+	import { createForm } from "felte"
+
+	const { form } = createForm({
+		onSubmit: (values) => {
+			console.log(values)
+		},
+	})
 </script>
 
 <div class="page">
@@ -11,14 +19,16 @@
 		</p>
 	</header>
 
-	<form class="form">
+	<form use:form class="form">
 		<ul class="form__radio-cards">
-			<li class="form__radio-card">
-				<label for="" class="card">
+			<li class="card">
+				<label for="arcade" class="card__contents">
 					<input
 						type="radio"
 						class="card__radio hidden"
-						value="arcade" />
+						id="arcade"
+						value="arcade"
+						name="arcade" />
 
 					<div class="card__title-wrapper">
 						<p class="card__title">Arcade</p>
@@ -33,12 +43,14 @@
 				</label>
 			</li>
 
-			<li class="form__radio-card">
-				<label for="" class="card">
+			<li class="card">
+				<label for="advanced" class="card__contents">
 					<input
+						id="advanced"
 						type="radio"
 						class="card__radio hidden"
-						value="advanced" />
+						value="advanced"
+						name="advanced" />
 
 					<div class="card__title-wrapper">
 						<p class="card__title">Advanced</p>
@@ -53,12 +65,14 @@
 				</label>
 			</li>
 
-			<li class="form__radio-card">
-				<label for="" class="card">
+			<li class="card">
+				<label for="pro" class="card__contents">
 					<input
+						id="pro"
 						type="radio"
 						class="card__radio hidden"
-						value="pro" />
+						value="pro"
+						name="pro" />
 
 					<div class="card__title-wrapper">
 						<p class="card__title">Pro</p>
@@ -132,3 +146,86 @@
 		</a>
 	</div>
 </div>
+
+<style>
+	.form__radio-cards {
+		width: 100%;
+		display: grid;
+		gap: 2rem;
+	}
+
+	/* Individual card */
+
+	.card {
+		padding-inline-end: 1.25rem;
+
+		--_card-color: var(--color-text-main);
+
+		border: 1px solid var(--_card-color);
+	}
+
+	.card__contents {
+		display: grid;
+		grid-template-areas: "title details radio-button";
+		align-items: center;
+	}
+
+	.card__title-wrapper {
+		padding-block: 1rem;
+		padding-inline-start: 1.25rem;
+
+		position: relative;
+	}
+
+	.card__title-wrapper::before {
+		content: "";
+		position: absolute;
+
+		inset: 0 -2rem 0 0;
+		clip-path: polygon(0 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+
+		background-color: var(--color-background-highlight);
+	}
+
+	.card__title {
+		position: relative;
+		z-index: 1;
+	}
+
+	/* Radio button */
+
+	.card__circle {
+		width: 1.5rem;
+		aspect-ratio: 1;
+
+		position: relative;
+		grid-area: radio-button;
+		justify-self: end;
+
+		border-radius: 50%;
+
+		border: 1px solid var(--color-text-main);
+	}
+
+	.card__circle::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		width: 0.75rem;
+		border-radius: 50%;
+		aspect-ratio: 1;
+
+		background-color: var(--color-active);
+		box-shadow: 0 0 0.5rem 0 var(--color-active);
+		opacity: 0;
+
+		transition: opacity 100ms ease-in;
+	}
+
+	.card__contents:has(.card__radio:checked) > .card__circle::before {
+		opacity: 1;
+	}
+</style>

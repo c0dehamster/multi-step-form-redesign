@@ -1,6 +1,14 @@
 <script>
 	import iconArrowLeft from "../../lib/images/icon-arrow-left.svg"
 	import iconArrowRight from "../../lib/images/icon-arrow-right.svg"
+
+	import { createForm } from "felte"
+
+	const { form } = createForm({
+		onSubmit: (values) => {
+			console.log(values)
+		},
+	})
 </script>
 
 <div class="page">
@@ -11,7 +19,7 @@
 		</p>
 	</header>
 
-	<form class="form">
+	<form use:form class="form">
 		<ul class="add-ons">
 			<li class="add-ons__list-item">
 				<label for="" class="card">

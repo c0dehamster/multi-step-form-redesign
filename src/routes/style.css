@@ -179,6 +179,13 @@ a {
 }
 
 /* Elements common between pages */
+.page {
+	padding-block: 3rem;
+
+	display: grid;
+	justify-items: center;
+	gap: 1.5rem;
+}
 
 .page__header {
 	display: grid;
@@ -195,6 +202,12 @@ a {
 .page__description {
 	max-width: 75%;
 	text-wrap: balance;
+}
+
+.form {
+	width: 100%;
+	display: grid;
+	padding-inline: 2rem;
 }
 
 /* Forward / back arrows */

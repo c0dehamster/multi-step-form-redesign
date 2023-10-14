@@ -37,7 +37,7 @@
 	</form>
 
 	<div class="nav-arrows">
-		<a href="#0" class="nav-arrows__link">
+		<a href="#0" class="nav-arrows__link nav-arrows__link--right">
 			<img
 				src={iconArrowRight}
 				alt="Next Step"
@@ -73,6 +73,8 @@
 
 		--_color: var(--color-text-main);
 	}
+
+	/* :has() does not work of Firefox. Fallback is needed */
 
 	.input-wrapper:has(.input:hover),
 	.input-wrapper:has(.input:focus) {

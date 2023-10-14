@@ -196,3 +196,33 @@ a {
 	max-width: 75%;
 	text-wrap: balance;
 }
+
+/* Forward / back arrows */
+
+.nav-arrows {
+	width: 100%;
+	padding-block: 2.5rem;
+	padding-inline: 3.5rem;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "left right";
+}
+
+.nav-arrows__link {
+	height: 3rem;
+}
+
+.nav-arrows__link--left {
+	justify-self: baseline;
+	grid-area: left;
+}
+
+.nav-arrows__link--right {
+	justify-self: end;
+	grid-area: right;
+}
+
+.nav-arrows__icon {
+	height: 100%;
+}

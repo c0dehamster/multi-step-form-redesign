@@ -21,6 +21,7 @@
 	.app {
 		position: relative;
 
+		min-height: 100vh;
 		width: 100%;
 
 		display: grid;

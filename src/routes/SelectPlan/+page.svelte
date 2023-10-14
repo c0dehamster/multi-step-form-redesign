@@ -97,11 +97,14 @@
 	</form>
 
 	<div class="nav-arrows">
-		<a href="#0" class="nav-arrows__link">
+		<a href="#0" class="nav-arrows__link nav-arrows__link--left">
 			<img
 				src={iconArrowLeft}
 				alt="Previous step"
 				class="nav-arrows__icon" />
+		</a>
+
+		<a href="#0" class="nav-arrows__link nav-arrows__link--right">
 			<img
 				src={iconArrowRight}
 				alt="Next Step"

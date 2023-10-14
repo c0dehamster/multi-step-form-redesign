@@ -211,6 +211,8 @@ a {
 
 .nav-arrows__link {
 	height: 3rem;
+
+	--_nav-arrow-color: var(--color-text-main);
 }
 
 .nav-arrows__link--left {
@@ -225,4 +227,13 @@ a {
 
 .nav-arrows__icon {
 	height: 100%;
+}
+
+.nav-arrows__icon path {
+	fill: var(--_nav-arrow-color);
+}
+
+.nav-arrows__link:hover,
+.nav-arrows__link:focus {
+	--_nav-arrow-color: var(--color-active);
 }

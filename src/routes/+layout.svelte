@@ -37,6 +37,7 @@
 
 	.navigation {
 		grid-area: navigation;
+		width: 100%;
 	}
 
 	.card {

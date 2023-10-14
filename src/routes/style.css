@@ -26,7 +26,7 @@ html:focus-within {
 body {
 	min-height: 100vh;
 	text-rendering: optimizeSpeed;
-	line-height: 1.5;
+	line-height: 1.6;
 }
 
 /* A elements that don't have a class get default styles */
@@ -127,7 +127,7 @@ select {
 
 	--font-size-heading-responsive: clamp(
 		var(--font-size-700),
-		11vw,
+		9vw,
 		var(--font-size-900)
 	);
 
@@ -137,9 +137,6 @@ select {
 
 body {
 	font-family: "Montserrat", sans-serif; /* My favorite font */
-}
-
-.app--light {
 }
 
 h1,
@@ -186,7 +183,7 @@ a {
 .page__header {
 	display: grid;
 	justify-items: center;
-	gap: 1rem;
+	gap: 1.5rem;
 
 	text-align: center;
 }

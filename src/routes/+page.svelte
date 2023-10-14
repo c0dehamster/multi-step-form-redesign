@@ -48,6 +48,8 @@
 
 <style>
 	.page {
+		padding-block: 3rem;
+
 		display: grid;
 		justify-items: center;
 		gap: 1.5rem;
@@ -58,8 +60,6 @@
 		padding: 2.5rem;
 		display: grid;
 		gap: 2.5rem;
-
-		background-color: var(--color-background-card);
 	}
 
 	.input-wrapper {
@@ -69,9 +69,14 @@
 		grid-template-areas:
 			"label error"
 			"input input";
-		gap: 1rem;
+		gap: 0.5rem;
 
 		--_color: var(--color-text-main);
+	}
+
+	.input-wrapper:has(.input:hover),
+	.input-wrapper:has(.input:focus) {
+		--_color: var(--color-active);
 	}
 
 	.label {

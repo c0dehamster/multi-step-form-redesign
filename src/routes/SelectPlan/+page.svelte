@@ -177,14 +177,14 @@
 	}
 
 	.card:has(.card__bonus) {
-		height: 5rem;
+		height: 5rem; /* Solution for overflow is needed */
 	}
 
 	.card__contents {
 		height: 100%;
 
 		display: grid;
-		grid-template-areas: "title details radio-button";
+		grid-template-areas: "title details";
 		align-items: center;
 	}
 
@@ -192,6 +192,7 @@
 		height: 100%;
 		padding-inline: 1.25rem 0.5rem;
 
+		grid-area: title;
 		display: grid;
 		align-items: center;
 
@@ -211,9 +212,13 @@
 	.card__title {
 		position: relative;
 		z-index: 1;
+
+		font-size: var(--font-size-400);
+		font-weight: var(--font-weight-bold);
 	}
 
 	.card__details {
+		grid-area: details;
 		display: grid;
 		gap: 0.5rem;
 	}
@@ -234,9 +239,9 @@
 		width: 1.5rem;
 		aspect-ratio: 1;
 
-		position: relative;
-		grid-area: radio-button;
-		justify-self: end;
+		position: absolute;
+		top: 1rem;
+		right: 1.25rem;
 
 		border-radius: 50%;
 

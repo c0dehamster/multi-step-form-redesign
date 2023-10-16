@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
 /* Andy Bell's CSS reset, modified */
 
 /* Box sizing rules, remove default paddings and margins */
@@ -136,8 +135,7 @@ select {
 }
 
 body {
-	font-family: "Montserrat", sans-serif; /* My favorite font */
-}
+	font-family: 'Ubuntu', sans-serif;}
 
 h1,
 h2,

@@ -35,8 +35,8 @@
 					</div>
 
 					<div class="card__details">
-						<p class="card__price">$9/mo</p>
-						<p class="card__bonus" />
+						<p class="card__price">$90/year</p>
+						<p class="card__bonus">+2 months free</p>
 					</div>
 
 					<div class="card__circle" />
@@ -58,7 +58,7 @@
 
 					<div class="card__details">
 						<p class="card__price">$12/mo</p>
-						<p class="card__bonus" />
+						<p class="card__bonus">+2 months free</p>
 					</div>
 
 					<div class="card__circle" />
@@ -80,7 +80,7 @@
 
 					<div class="card__details">
 						<p class="card__price">$15/mo</p>
-						<p class="card__bonus" />
+						<p class="card__bonus">+2 months free</p>
 					</div>
 
 					<div class="card__circle" />
@@ -94,7 +94,10 @@
 		<fieldset class="billing-options">
 			<legend class="sr-only">Select monthly or yearly billing</legend>
 
-			<label for="" class="billing-options__label">Monthly</label>
+			<label
+				for=""
+				class="billing-options__label billing-options__label--left"
+				>Monthly</label>
 
 			<input
 				type="radio"
@@ -106,7 +109,10 @@
 				type="radio"
 				class="billing-options__radio hidden"
 				value="yearly" />
-			<label for="" class="billing-options__label">Yearly</label>
+			<label
+				for=""
+				class="billing-options__label billing-options__label--right"
+				>Yearly</label>
 		</fieldset>
 	</form>
 
@@ -148,6 +154,10 @@
 </div>
 
 <style>
+	.form {
+		gap: 2.75rem;
+	}
+
 	.form__radio-cards {
 		width: 100%;
 		display: grid;
@@ -158,21 +168,32 @@
 
 	.card {
 		padding-inline-end: 1.25rem;
+		height: 3.5rem;
+
+		container-type: size;
 
 		--_card-color: var(--color-text-main);
-
 		border: 1px solid var(--_card-color);
 	}
 
+	.card:has(.card__bonus) {
+		height: 5rem;
+	}
+
 	.card__contents {
+		height: 100%;
+
 		display: grid;
 		grid-template-areas: "title details radio-button";
 		align-items: center;
 	}
 
 	.card__title-wrapper {
-		padding-block: 1rem;
-		padding-inline-start: 1.25rem;
+		height: 100%;
+		padding-inline: 1.25rem 0.5rem;
+
+		display: grid;
+		align-items: center;
 
 		position: relative;
 	}
@@ -182,7 +203,7 @@
 		position: absolute;
 
 		inset: 0 -2rem 0 0;
-		clip-path: polygon(0 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, calc(100% - 57cqb) 100%, 0 100%);
 
 		background-color: var(--color-background-highlight);
 	}
@@ -190,6 +211,21 @@
 	.card__title {
 		position: relative;
 		z-index: 1;
+	}
+
+	.card__details {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	.card__price {
+		padding-inline-start: 2.5rem;
+
+		opacity: 0.5;
+	}
+
+	.card__bonus {
+		padding-inline-start: 1rem;
 	}
 
 	/* Radio button */
@@ -227,5 +263,77 @@
 
 	.card__contents:has(.card__radio:checked) > .card__circle::before {
 		opacity: 1;
+	}
+
+	/* Toggle switch */
+
+	.billing-options {
+		display: grid;
+		grid-template-columns: 1fr 3rem 1fr;
+		gap: 2rem;
+		align-items: center;
+
+		border: none;
+	}
+
+	.billing-options__label {
+		position: relative;
+
+		--_label-color: var(--color-text-main);
+	}
+
+	.billing-options__label::before {
+		content: "";
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		bottom: 0;
+		transition: 100ms ease-in;
+
+		border-bottom: 1px solid var(--_label-color);
+	}
+
+	.billing-options__label:hover::before,
+	.billing-options__label:focus::before {
+		left: 0;
+		right: 0;
+	}
+
+	.billing-options__label--left {
+		justify-self: end;
+	}
+
+	.billing-options__label--right {
+		justify-self: baseline;
+	}
+
+	.billing-options__switch {
+		position: relative;
+
+		width: 3rem;
+		height: 1.5rem;
+
+		background: transparent;
+		--_switch-color: var(--color-text-main);
+		border: 1px solid var(--_switch-color);
+	}
+
+	.billing-options__switch:hover,
+	.billing-options__switch:focus {
+		--_switch-color: var(--color-active);
+	}
+
+	.billing-options__switch::before {
+		content: "";
+
+		position: absolute;
+		top: 50%;
+		left: 0.2rem;
+		transform: translateY(-50%);
+
+		width: 1rem;
+		aspect-ratio: 1;
+
+		border: 1px solid var(--_switch-color);
 	}
 </style>

@@ -1,40 +1,23 @@
+<script lang="ts">
+	export let navigationData: Array<{
+		id: number
+		name: string
+		address: string
+	}>
+</script>
+
 <nav class="nav">
 	<ol class="nav__list">
-		<li class="nav__list-item">
-			<a href="/" class="nav__link">
-				<div class="nav__label">
-					<p class="nav__step">Step 1</p>
-					<p class="nav__name">Your info</p>
-				</div>
-			</a>
-		</li>
-
-		<li class="nav__list-item">
-			<a href="/SelectPlan" class="nav__link">
-				<div class="nav__label">
-					<p class="nav__step">Step 2</p>
-					<p class="nav__name">Select plan</p>
-				</div>
-			</a>
-		</li>
-
-		<li class="nav__list-item">
-			<a href="/AddOns" class="nav__link">
-				<div class="nav__label">
-					<p class="nav__step">Step 3</p>
-					<p class="nav__name">Add-ons</p>
-				</div>
-			</a>
-		</li>
-
-		<li class="nav__list-item">
-			<a href="/Summary" class="nav__link">
-				<div class="nav__label">
-					<p class="nav__step">Step 4</p>
-					<p class="nav__name">Summary</p>
-				</div>
-			</a>
-		</li>
+		{#each navigationData as listItem}
+			<li class="nav__list-item">
+				<a href={listItem.address} class="nav__link">
+					<div class="nav__label">
+						<p class="nav__step">Step {listItem.id}</p>
+						<p class="nav__name">{listItem.name}</p>
+					</div>
+				</a>
+			</li>
+		{/each}
 	</ol>
 </nav>
 

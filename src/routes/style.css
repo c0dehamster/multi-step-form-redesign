@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
 /* Andy Bell's CSS reset, modified */
 
 /* Box sizing rules, remove default paddings and margins */
@@ -92,7 +92,7 @@ select {
 	--color-accent-400: hsl(335, 100%, 42%);
 
 	--color-neutral-100: hsl(246, 100%, 91%);
-	--color-neutral-700: hsl(260, 84%, 5%, 0.4);
+	--color-neutral-700: hsl(260, 84%, 5%, 0.5);
 	--color-neutral-800: hsl(260, 84%, 5%);
 	--color-neutral-900: hsl(260, 80%, 2%);
 
@@ -135,7 +135,8 @@ select {
 }
 
 body {
-	font-family: 'Ubuntu', sans-serif;}
+	font-family: "Ubuntu", sans-serif;
+}
 
 h1,
 h2,
@@ -166,14 +167,15 @@ a {
 
 	min-width: fit-content;
 
+	border: none;
+	outline: none;
 	border-radius: 0rem;
 
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	overflow: hidden;
 
-	font-size: var(--font-size-400);
+	font-size: var(--font-size-300);
 }
 
 /* Elements common between pages */

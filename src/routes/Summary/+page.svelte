@@ -48,25 +48,6 @@
 			</button>
 		</div>
 	</form>
-
-	<div class="nav-arrows">
-		<a
-			href="#0"
-			class="nav-arrows__link nav-arrows__link--left"
-			aria-label="next step">
-			<svg
-				class="nav-arrows__icon"
-				width="48"
-				height="125"
-				viewBox="0 0 133 346"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg">
-				<path
-					d="M100.25 0.75L132.25 0.75L32.25 172.25L132.25 345.25H100.25L0.25 172.25L100.25 0.75Z"
-					fill="#D700BA" />
-			</svg>
-		</a>
-	</div>
 </div>
 
 <style>

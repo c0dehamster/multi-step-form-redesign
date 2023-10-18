@@ -43,25 +43,6 @@
 			<p class="error" />
 		</div>
 	</form>
-
-	<div class="nav-arrows">
-		<a
-			href="#0"
-			class="nav-arrows__link nav-arrows__link--right"
-			aria-label="next step">
-			<svg
-				class="nav-arrows__icon"
-				width="48"
-				height="125"
-				viewBox="0 0 133 346"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg">
-				<path
-					d="M32.25 345.25H0.25L100.25 173.75L0.25 0.75H32.25L132.25 173.75L32.25 345.25Z"
-					fill="#D700BA" />
-			</svg>
-		</a>
-	</div>
 </div>
 
 <style>

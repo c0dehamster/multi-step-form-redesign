@@ -4,16 +4,20 @@
 	import backgroundPatternMobile from "../lib/images/background-pattern-mobile.svg"
 	import backgroundPatternDesktop from "../lib/images/background-pattern-desktop.svg"
 
+	import { navigationData } from "./data"
+
 	import Navigation from "./Navigation.svelte"
+	import NavArrows from "./NavArrows.svelte"
 </script>
 
 <div class="app" style="--background-mobile: url({backgroundPatternMobile});">
 	<aside class="navigation">
-		<Navigation />
+		<Navigation {navigationData} />
 	</aside>
 
 	<main class="card">
 		<slot />
+		<NavArrows {navigationData} />
 	</main>
 </div>
 

@@ -19,40 +19,42 @@
 	</header>
 
 	<form use:form class="form">
-		<div class="input-wrapper">
-			<label for="name" class="label">Name</label>
-			<input
-				type="text"
-				class="input"
-				placeholder="e.g. Stephen King"
-				id="name"
-				autocomplete="off"
-				name="name" />
-			<p class="error">Error</p>
-		</div>
+		<div class="form__inputs">
+			<div class="input-wrapper">
+				<label for="name" class="label">Name</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="e.g. Stephen King"
+					id="name"
+					autocomplete="off"
+					name="name" />
+				<p class="error">Error</p>
+			</div>
 
-		<div class="input-wrapper">
-			<label for="email" class="label">Email Address</label>
-			<input
-				type="text"
-				class="input"
-				placeholder="e.g. stephenking@lorem.com"
-				id="email"
-				autocomplete="off"
-				name="email" />
-			<p class="error" />
-		</div>
+			<div class="input-wrapper">
+				<label for="email" class="label">Email Address</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="e.g. stephenking@lorem.com"
+					id="email"
+					autocomplete="off"
+					name="email" />
+				<p class="error" />
+			</div>
 
-		<div class="input-wrapper">
-			<label for="phoneNumber" class="label">Phone Number</label>
-			<input
-				type="text"
-				class="input"
-				placeholder="e.g. +1 234 567 890"
-				id="phoneNumber"
-				autocomplete="off"
-				name="phoneNumber" />
-			<p class="error" />
+			<div class="input-wrapper">
+				<label for="phoneNumber" class="label">Phone Number</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="e.g. +1 234 567 890"
+					id="phoneNumber"
+					autocomplete="off"
+					name="phoneNumber" />
+				<p class="error" />
+			</div>
 		</div>
 
 		<NavArrows />
@@ -60,8 +62,9 @@
 </div>
 
 <style>
-	.form {
-		padding-block: 2.5rem;
+	.form__inputs {
+		padding-inline: 2.5rem;
+		display: grid;
 		gap: 2.5rem;
 	}
 

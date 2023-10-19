@@ -1,6 +1,5 @@
 <script>
-	import iconArrowLeft from "../../lib/images/icon-arrow-left.svg"
-	import iconArrowRight from "../../lib/images/icon-arrow-right.svg"
+	import NavArrows from "../NavArrows.svelte"
 
 	import { createForm } from "felte"
 
@@ -68,11 +67,15 @@
 				</label>
 			</li>
 		</ul>
+
+		<NavArrows />
 	</form>
 </div>
 
 <style>
 	.add-ons {
+		padding-inline: 2rem;
+
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;

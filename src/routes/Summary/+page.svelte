@@ -1,7 +1,6 @@
 <script>
-	import iconArrowLeft from "../../lib/images/icon-arrow-left.svg"
-
 	import { createForm } from "felte"
+	import NavArrows from "../NavArrows.svelte"
 
 	const { form } = createForm({
 		onSubmit: (values) => {
@@ -47,18 +46,17 @@
 				<div class="button__contents">Confirm</div>
 			</button>
 		</div>
+
+		<NavArrows />
 	</form>
 </div>
 
 <style>
-	.form {
+	.summary {
 		padding-inline: 1rem;
+		display: grid;
 
 		background-color: var(--color-background-card);
-	}
-
-	.summary {
-		display: grid;
 	}
 
 	.summary > *:where(:not(:last-child)) {
@@ -124,6 +122,7 @@
 		isolation: isolate;
 
 		margin-inline: 1.5rem;
+		margin-block: 2rem 2.5rem;
 
 		border: 1px solid var(--color-active);
 		color: var(--color-active);

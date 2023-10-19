@@ -44,6 +44,7 @@
 	}
 
 	.card {
+		width: 100%;
 		grid-area: main;
 	}
 </style>

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import iconArrowLeft from "../../lib/images/icon-arrow-left.svg"
-	import iconArrowRight from "../../lib/images/icon-arrow-right.svg"
+	import NavArrows from "../NavArrows.svelte"
 
 	import { createForm } from "felte"
 
@@ -121,6 +120,8 @@
 				Yearly
 			</label>
 		</fieldset>
+
+		<NavArrows />
 	</form>
 </div>
 
@@ -131,6 +132,7 @@
 
 	.form__radio-cards {
 		width: 100%;
+		padding-inline: 2rem;
 		display: grid;
 		gap: 2rem;
 	}

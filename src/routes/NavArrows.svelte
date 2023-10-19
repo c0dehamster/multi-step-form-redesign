@@ -62,7 +62,7 @@
 <style>
 	.nav-arrows {
 		width: 100%;
-		padding-inline: 3.5rem;
+		padding-inline: 1rem;
 
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -70,7 +70,6 @@
 	}
 
 	.nav-arrows__button {
-		width: fit-content;
 		height: 3rem;
 
 		border: none;

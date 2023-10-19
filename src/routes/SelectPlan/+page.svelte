@@ -95,24 +95,31 @@
 			<legend class="sr-only">Select monthly or yearly billing</legend>
 
 			<label
-				for=""
-				class="billing-options__label billing-options__label--left"
-				>Monthly</label>
+				for="monthly"
+				class="billing-options__label billing-options__label--left">
+				Monthly
+			</label>
 
 			<input
 				type="radio"
 				class="billing-options__radio hidden"
-				value="monthly" />
+				value="monthly"
+				id="monthly"
+				name="monthly" />
 			<button class="billing-options__switch" />
 
 			<input
 				type="radio"
 				class="billing-options__radio hidden"
-				value="yearly" />
+				value="yearly"
+				id="yearly"
+				name="yearly" />
+
 			<label
-				for=""
-				class="billing-options__label billing-options__label--right"
-				>Yearly</label>
+				for="yearly"
+				class="billing-options__label billing-options__label--right">
+				Yearly
+			</label>
 		</fieldset>
 	</form>
 </div>

@@ -22,34 +22,49 @@
 	<form use:form class="form">
 		<ul class="add-ons">
 			<li class="card">
-				<label for="" class="card__contents">
+				<label for="onlineService" class="card__contents">
 					<p class="card__title">Online service</p>
 					<p class="card__description">Access to multiplayer games</p>
 					<p class="card__price">+$1/mo</p>
 
-					<input type="checkbox" class="card__checkbox" />
+					<input
+						type="checkbox"
+						class="card__checkbox"
+						value="onlineService"
+						id="onlineService"
+						name="onlineService" />
 				</label>
 			</li>
 
 			<li class="card">
-				<label for="" class="card__contents">
+				<label for="largerStorage" class="card__contents">
 					<p class="card__title">Larger storage</p>
 					<p class="card__description">Extra 1TB of cloud save</p>
 					<p class="card__price">+$2/mo</p>
 
-					<input type="checkbox" class="card__checkbox" />
+					<input
+						type="checkbox"
+						class="card__checkbox"
+						value="largerStorage"
+						id="largerStorage"
+						name="largerStorage" />
 				</label>
 			</li>
 
 			<li class="card">
-				<label for="" class="card__contents">
+				<label for="customizableProfile" class="card__contents">
 					<p class="card__title">Customizable Profile</p>
 					<p class="card__description">
 						Custom theme on your profile
 					</p>
 					<p class="card__price">+$2/mo</p>
 
-					<input type="checkbox" class="card__checkbox" />
+					<input
+						type="checkbox"
+						class="card__checkbox"
+						value="customizableProfile"
+						id="customizableProfile"
+						name="customizableProfile" />
 				</label>
 			</li>
 		</ul>

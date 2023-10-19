@@ -7,7 +7,6 @@
 	import { navigationData } from "./data"
 
 	import Navigation from "./Navigation.svelte"
-	import NavArrows from "./NavArrows.svelte"
 </script>
 
 <div class="app" style="--background-mobile: url({backgroundPatternMobile});">
@@ -17,7 +16,6 @@
 
 	<main class="card">
 		<slot />
-		<NavArrows {navigationData} />
 	</main>
 </div>
 

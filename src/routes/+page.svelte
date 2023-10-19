@@ -1,7 +1,7 @@
-<script>
-	import iconArrowRight from "../lib/images/icon-arrow-right.svg"
-
+<script lang="ts">
 	import { createForm } from "felte"
+
+	import NavArrows from "./NavArrows.svelte"
 
 	const { form } = createForm({
 		onSubmit: (values) => {
@@ -20,28 +20,42 @@
 
 	<form use:form class="form">
 		<div class="input-wrapper">
-			<label for="" class="label">Name</label>
-			<input type="text" class="input" placeholder="e.g. Stephen King" />
+			<label for="name" class="label">Name</label>
+			<input
+				type="text"
+				class="input"
+				placeholder="e.g. Stephen King"
+				id="name"
+				autocomplete="off"
+				name="name" />
 			<p class="error">Error</p>
 		</div>
 
 		<div class="input-wrapper">
-			<label for="" class="label">Email Address</label>
+			<label for="email" class="label">Email Address</label>
 			<input
 				type="text"
 				class="input"
-				placeholder="e.g. stephenking@lorem.com" />
+				placeholder="e.g. stephenking@lorem.com"
+				id="email"
+				autocomplete="off"
+				name="email" />
 			<p class="error" />
 		</div>
 
 		<div class="input-wrapper">
-			<label for="" class="label">Phone Number</label>
+			<label for="phoneNumber" class="label">Phone Number</label>
 			<input
 				type="text"
 				class="input"
-				placeholder="e.g. +1 234 567 890" />
+				placeholder="e.g. +1 234 567 890"
+				id="phoneNumber"
+				autocomplete="off"
+				name="phoneNumber" />
 			<p class="error" />
 		</div>
+
+		<NavArrows />
 	</form>
 </div>
 
@@ -91,6 +105,7 @@
 
 		text-align: center;
 
+		color: var(--color-text-main);
 		background-color: transparent;
 		border: none;
 		outline: none;

@@ -32,8 +32,8 @@
 						</p>
 						<p class="card__price">
 							{$userDataStore.billing === "monthly"
-								? `+$${addOn.pricePerMonth}`
-								: `+$${addOn.pricePerYear}`}
+								? `+$${addOn.pricePerMonth}/mo`
+								: `+$${addOn.pricePerYear}/yr`}
 						</p>
 
 						<input

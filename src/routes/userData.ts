@@ -7,7 +7,7 @@ const initialValues: UserData = {
 	email: "",
 	phoneNumber: "",
 	plan: "arcade",
-	billing: "monthly",
+	billingScheme: "monthly",
 	addOns: [],
 }
 

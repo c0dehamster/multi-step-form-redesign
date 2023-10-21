@@ -9,7 +9,7 @@
 
 	const { form, data } = createForm({
 		onSubmit: (values) => {
-			console.log(values)
+			userDataStore.onSubmit(values)
 		},
 	})
 </script>
@@ -32,7 +32,7 @@
 							{addOn.description}
 						</p>
 						<p class="card__price">
-							{$userDataStore.billing === "monthly"
+							{$userDataStore.billingScheme === "monthly"
 								? `+$${addOn.pricePerMonth}/mo`
 								: `+$${addOn.pricePerYear}/yr`}
 						</p>

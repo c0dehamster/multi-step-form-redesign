@@ -1,13 +1,18 @@
 <script lang="ts">
 	import { createForm } from "felte"
 
+	import { userDataStore } from "../userData"
+
 	import { plans } from "../data"
 
 	import NavArrows from "../NavArrows.svelte"
 
 	const { form, data } = createForm({
-		onSubmit: (values) => {
-			console.log(values)
+		onSubmit: (values: {
+			plan: "arcade" | "advanced" | "pro"
+			billingScheme: "monthly" | "yearly"
+		}) => {
+			userDataStore.onSubmit(values)
 		},
 		initialValues: {
 			plans: "arcade",

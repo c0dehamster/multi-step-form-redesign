@@ -9,6 +9,6 @@ export interface UserData {
 	email?: string
 	phoneNumber?: string
 	plan?: "arcade" | "advanced" | "pro"
-	billing?: "monthly" | "yearly"
+	billingScheme?: "monthly" | "yearly"
 	addOns?: Array<"onlineService" | "largerStorage" | "customizableProfile">
 }

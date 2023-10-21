@@ -1,13 +1,30 @@
 <script lang="ts">
-	import NavArrows from "../NavArrows.svelte"
-
 	import { createForm } from "felte"
 
-	const { form } = createForm({
+	import { plans } from "../data"
+
+	import NavArrows from "../NavArrows.svelte"
+
+	const { form, data } = createForm({
 		onSubmit: (values) => {
 			console.log(values)
 		},
+		initialValues: {
+			plans: "arcade",
+			billingScheme: "monthly",
+		},
 	})
+
+	let billing = "monthly"
+
+	const changeBillingScheme = () => {
+		data.update((values) => {
+			const billingSchemeSwitched =
+				values.billingScheme === "monthly" ? "yearly" : "monthly"
+
+			return { ...values, billingScheme: billingSchemeSwitched }
+		})
+	}
 </script>
 
 <div class="page">
@@ -20,74 +37,43 @@
 
 	<form use:form class="form">
 		<ul class="form__radio-cards">
-			<li class="card">
-				<label for="arcade" class="card__contents">
-					<input
-						type="radio"
-						class="card__radio hidden"
-						id="arcade"
-						value="arcade"
-						name="arcade" />
+			{#each plans as plan}
+				<!-- Felte takes an array of objects to create a field array.
+			For radio buttons, unique IDs are required -->
 
-					<div class="card__title-wrapper">
-						<p class="card__title">Arcade</p>
-					</div>
+				<li class="card">
+					<label for={plan.id} class="card__contents">
+						<input
+							type="radio"
+							class="card__radio hidden"
+							id={plan.id}
+							value={plan.name}
+							name="plans" />
 
-					<div class="card__details">
-						<p class="card__price">$90/year</p>
-						<p class="card__bonus">+2 months free</p>
-					</div>
+						<div class="card__title-wrapper">
+							<p class="card__title">{plan.title}</p>
+						</div>
 
-					<div class="card__circle" />
-				</label>
-			</li>
+						<div class="card__details">
+							{#if $data.billingScheme === "monthly"}
+								<p class="card__price">
+									${plan.pricePerMonth}/month
+								</p>
+							{:else}
+								<p class="card__price">
+									${plan.pricePerYear}/year
+								</p>
+								<p class="card__bonus">+2 months free</p>
+							{/if}
+						</div>
 
-			<li class="card">
-				<label for="advanced" class="card__contents">
-					<input
-						id="advanced"
-						type="radio"
-						class="card__radio hidden"
-						value="advanced"
-						name="advanced" />
-
-					<div class="card__title-wrapper">
-						<p class="card__title">Advanced</p>
-					</div>
-
-					<div class="card__details">
-						<p class="card__price">$12/mo</p>
-						<p class="card__bonus">+2 months free</p>
-					</div>
-
-					<div class="card__circle" />
-				</label>
-			</li>
-
-			<li class="card">
-				<label for="pro" class="card__contents">
-					<input
-						id="pro"
-						type="radio"
-						class="card__radio hidden"
-						value="pro"
-						name="pro" />
-
-					<div class="card__title-wrapper">
-						<p class="card__title">Pro</p>
-					</div>
-
-					<div class="card__details">
-						<p class="card__price">$15/mo</p>
-						<p class="card__bonus">+2 months free</p>
-					</div>
-
-					<div class="card__circle" />
-				</label>
-			</li>
+						<div class="card__circle" />
+					</label>
+				</li>
+			{/each}
 		</ul>
 
-		<!-- This is an improvised way to make a two-option 
+		<!-- This is an custom way to make a two-option 
 		toggle switch, use with caution -->
 
 		<fieldset class="billing-options">
@@ -104,15 +90,18 @@
 				class="billing-options__radio hidden"
 				value="monthly"
 				id="monthly"
-				name="monthly" />
-			<button class="billing-options__switch" />
+				name="billingScheme" />
+			<button
+				class="billing-options__switch"
+				aria-label="Switch billing scheme"
+				on:click|preventDefault={changeBillingScheme} />
 
 			<input
 				type="radio"
 				class="billing-options__radio hidden"
 				value="yearly"
 				id="yearly"
-				name="yearly" />
+				name="billingScheme" />
 
 			<label
 				for="yearly"

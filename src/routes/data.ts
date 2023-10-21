@@ -39,7 +39,7 @@ export const plans = [
 	},
 	{
 		id: "plan3",
-		name: "arcade",
+		name: "pro",
 		title: "Pro",
 
 		pricePerMonth: 15,
@@ -68,8 +68,7 @@ export const addOns = [
 		id: "addOn3",
 		name: "customizableProfile",
 		description: "Custom theme on your profile",
-
-		title: "Online service",
+		title: "Customizable profile",
 		pricePerMonth: 2,
 		pricePerYear: 20,
 	},

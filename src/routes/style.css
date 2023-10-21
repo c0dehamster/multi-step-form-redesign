@@ -103,6 +103,8 @@ select {
 		var(--color-neutral-900)
 	);
 
+	--color-background-app: var(--color-neutral-900);
+
 	--color-background-page: var(--color-neutral-900);
 	--color-background-card: var(--color-neutral-700);
 	--color-background-highlight: var(--color-secondary-400);

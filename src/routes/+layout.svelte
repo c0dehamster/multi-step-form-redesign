@@ -33,9 +33,7 @@
 		justify-items: center;
 
 		color: var(--color-text-main);
-		background: var(--background-mobile), var(--background-app);
-		background-repeat: no-repeat;
-		background-size: cover;
+		background-color: var(--color-background-page);
 	}
 
 	.navigation {

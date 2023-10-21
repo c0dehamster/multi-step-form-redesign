@@ -63,9 +63,11 @@
 
 <style>
 	.form__inputs {
-		padding-inline: 2.5rem;
+		padding: 2rem;
 		display: grid;
 		gap: 2.5rem;
+
+		background-color: var(--color-background-card);
 	}
 
 	.input-wrapper {

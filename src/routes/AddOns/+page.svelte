@@ -2,11 +2,12 @@
 	import { createForm } from "felte"
 
 	import { addOns } from "../data"
+	import iconCheckmark from "../../lib/images/checkmark.svg"
 	import { userDataStore } from "../userData"
 
 	import NavArrows from "../NavArrows.svelte"
 
-	const { form } = createForm({
+	const { form, data } = createForm({
 		onSubmit: (values) => {
 			console.log(values)
 		},
@@ -38,10 +39,18 @@
 
 						<input
 							type="checkbox"
-							class="card__checkbox"
+							class="hidden"
 							value={addOn.name}
 							id={addOn.name}
-							name={addOn.name} />
+							name="addOns" />
+
+						<div
+							class={`card__checkbox ${
+								$data.addOns?.includes(addOn.name)
+									? "card__checkbox--checked"
+									: ""
+							}`}
+							style="--icon-checkmark: url({iconCheckmark});" />
 					</label>
 				</li>
 			{/each}
@@ -105,15 +114,32 @@
 	}
 
 	.card__checkbox {
+		position: relative;
 		grid-area: checkbox;
 		justify-self: end;
-
-		appearance: none;
 
 		width: 1.5rem;
 		aspect-ratio: 1;
 
 		border: 1px solid var(--color-text-main);
+	}
+
+	.card__checkbox::before {
+		content: "";
+		position: absolute;
+		/* Due to the shadow the SVG is much larger than the checmark itself */
+		inset: -1.75rem -1.5rem -1.25rem -1.5rem;
+		z-index: 2;
+		background-image: var(--icon-checkmark);
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		opacity: 0;
+		transition: opacity 100ms linear;
+	}
+
+	.card__checkbox--checked::before {
+		opacity: 1;
 	}
 
 	.card__description {

@@ -2,11 +2,13 @@
 	import { createForm } from "felte"
 	import NavArrows from "../NavArrows.svelte"
 
+	import { userDataStore, summary } from "../userData"
+
 	const { form } = createForm({
 		onSubmit: (values) => {
 			console.log(values)
 		},
-	})
+	}) // For debugging
 </script>
 
 <div class="page">
@@ -20,26 +22,47 @@
 	<form use:form class="form">
 		<div class="summary">
 			<div class="plan">
-				<p class="plan__name">Arcade (yearly)</p>
-				<a href="#0" class="plan__to-step-one">Change</a>
-				<p class="plan__price">$90/year</p>
+				<p class="plan__name">
+					{$summary.planInfo.title} ({$summary.planInfo
+						.billingScheme})
+				</p>
+				<a href="/" class="plan__to-step-one">Change</a>
+
+				{#if $summary.planInfo.billingScheme === "monthly"}
+					<p class="plan__price">${$summary.planInfo.price}/month</p>
+				{:else}
+					<p class="plan__price">${$summary.planInfo.price}/year</p>
+				{/if}
 			</div>
 
-			<ul class="add-ons">
-				<li class="add-ons__list-item">
-					<p class="add-ons__name">Online service</p>
-					<p class="add-ons__price">+$10/year</p>
-				</li>
+			{#if $summary.addOnsInfo.length > 0}
+				<ul class="add-ons">
+					{#each $summary.addOnsInfo as addOn}
+						<li class="add-ons__list-item">
+							<p class="add-ons__name">{addOn.title}</p>
 
-				<li class="add-ons__list-item">
-					<p class="add-ons__name">Larger storage</p>
-					<p class="add-ons__price">+$20/year</p>
-				</li>
-			</ul>
+							{#if $userDataStore.billingScheme === "monthly"}
+								<p class="add-ons__price">
+									+${addOn.price}/month
+								</p>
+							{:else}
+								<p class="add-ons__price">
+									+${addOn.price}/year
+								</p>
+							{/if}
+						</li>
+					{/each}
+				</ul>
+			{/if}
 
 			<div class="total">
-				<p class="total__name">Total (per year)</p>
-				<p class="total__cost">$120/year</p>
+				{#if $summary.planInfo.billingScheme === "monthly"}
+					<p class="total__name">Total (per month)</p>
+					<p class="total__cost">${$summary.total}/month</p>
+				{:else}
+					<p class="total__name">Total (per year)</p>
+					<p class="total__cost">${$summary.total}/year</p>
+				{/if}
 			</div>
 
 			<button class="button button--outline">

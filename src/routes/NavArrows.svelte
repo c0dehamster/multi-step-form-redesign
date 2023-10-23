@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/stores"
-	import { goto } from "$app/navigation"
-	import { createEventDispatcher } from "svelte"
 
 	import { navigationData } from "./data"
-
-	const dispatch = createEventDispatcher()
 
 	$: currentUrl = $page.url.pathname // Atlernatively, the current URL could be passed as a prop
 	$: currentIndex = navigationData.findIndex(
@@ -13,8 +9,6 @@
 	)
 	$: previousUrl = navigationData[currentIndex - 1]?.address || null
 	$: nextUrl = navigationData[currentIndex + 1]?.address || null
-
-	const switchPage = (url: string | null) => url && goto(url)
 </script>
 
 <div class="nav-arrows">

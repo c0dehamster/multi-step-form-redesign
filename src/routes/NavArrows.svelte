@@ -19,10 +19,7 @@
 
 <div class="nav-arrows">
 	{#if previousUrl}
-		<button
-			class="nav-arrows__button nav-arrows__button--left"
-			aria-label="next step"
-			on:click={() => switchPage(previousUrl)}>
+		<a href={previousUrl} class="nav-arrows__link nav-arrows__link--left">
 			<svg
 				class="nav-arrows__icon"
 				width="48"
@@ -34,14 +31,11 @@
 					d="M100.25 0.75L132.25 0.75L32.25 172.25L132.25 345.25H100.25L0.25 172.25L100.25 0.75Z"
 					fill="#D700BA" />
 			</svg>
-		</button>
+		</a>
 	{/if}
 
 	{#if nextUrl}
-		<button
-			class="nav-arrows__button nav-arrows__button--right"
-			aria-label="previous step"
-			on:click={() => switchPage(nextUrl)}>
+		<a href={nextUrl} class="nav-arrows__link nav-arrows__link--right">
 			<svg
 				class="nav-arrows__icon"
 				width="48"
@@ -53,7 +47,7 @@
 					d="M32.25 345.25H0.25L100.25 173.75L0.25 0.75H32.25L132.25 173.75L32.25 345.25Z"
 					fill="#D700BA" />
 			</svg>
-		</button>
+		</a>
 	{/if}
 </div>
 
@@ -67,7 +61,7 @@
 		grid-template-areas: "left right";
 	}
 
-	.nav-arrows__button {
+	.nav-arrows__link {
 		height: 3rem;
 
 		border: none;
@@ -75,12 +69,12 @@
 		background: transparent;
 	}
 
-	.nav-arrows__button--left {
+	.nav-arrows__link--left {
 		justify-self: baseline;
 		grid-area: left;
 	}
 
-	.nav-arrows__button--right {
+	.nav-arrows__link--right {
 		justify-self: end;
 		grid-area: right;
 	}
@@ -93,8 +87,8 @@
 		fill: var(--_nav-arrow-color);
 	}
 
-	.nav-arrows__button:hover,
-	.nav-arrows__button:focus {
+	.nav-arrows__link:hover,
+	.nav-arrows__link:focus {
 		--_nav-arrow-color: var(--color-active);
 	}
 </style>

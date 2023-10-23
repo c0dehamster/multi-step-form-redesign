@@ -5,8 +5,11 @@
 	import backgroundPatternDesktop from "../lib/images/background-pattern-desktop.svg"
 
 	import { navigationData } from "./data"
+	import { userDataStore } from "./userData"
 
 	import Navigation from "./Navigation.svelte"
+
+	$: console.log($userDataStore)
 </script>
 
 <div class="app" style="--background-mobile: url({backgroundPatternMobile});">

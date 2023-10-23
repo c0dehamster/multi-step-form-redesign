@@ -1,14 +1,60 @@
 <script lang="ts">
+	/* This entire page _kind_of_works_ */
+
+	import { beforeNavigate } from "$app/navigation"
 	import { createForm } from "felte"
 
 	import { userDataStore } from "./userData"
 
 	import NavArrows from "./NavArrows.svelte"
 
-	const { form } = createForm({
-		onSubmit: (values) => {
-			userDataStore.onSubmit(values)
-		},
+	let errorMessages = {
+		name: "",
+		email: "",
+		phoneNumber: "",
+	}
+
+	const { form, touched, isDirty, isValid, createSubmitHandler } = createForm(
+		{
+			onSubmit: (values) => {
+				userDataStore.onSubmit(values)
+				return values
+			},
+
+			validate: (values) => {
+				/* Validates on input. Prevents form submission.
+			$errors is only updated upon submitting
+			hense errorMessages workaround */
+				const errors = {
+					name: "",
+					email: "",
+					phoneNumber: "",
+				}
+
+				if (values.name === "") errors.name = "Cannot be empty"
+				if (values.email === "") errors.email = "Cannot be empty"
+				if (values.phoneNumber === "")
+					errors.phoneNumber = "Cannot be empty"
+
+				errorMessages = errors
+				return errors
+			},
+		}
+	)
+
+	const handleSubmit = createSubmitHandler()
+
+	/* The function to prevent routing has to be passed as an argument to
+	the callback of beforeNavigate. THat is strange */
+
+	beforeNavigate(({ cancel }) => {
+		if (!$isDirty || !$isValid) {
+			console.log("Navigation cancelled:", errorMessages)
+			cancel()
+			return
+		}
+
+		handleSubmit()
 	})
 </script>
 
@@ -31,7 +77,7 @@
 					id="name"
 					autocomplete="off"
 					name="name" />
-				<p class="error">Error</p>
+				<p class="error">{$touched.name ? errorMessages.name : ""}</p>
 			</div>
 
 			<div class="input-wrapper">
@@ -43,7 +89,7 @@
 					id="email"
 					autocomplete="off"
 					name="email" />
-				<p class="error" />
+				<p class="error">{$touched.email ? errorMessages.email : ""}</p>
 			</div>
 
 			<div class="input-wrapper">
@@ -55,12 +101,14 @@
 					id="phoneNumber"
 					autocomplete="off"
 					name="phoneNumber" />
-				<p class="error" />
+				<p class="error">
+					{$touched.phoneNumber ? errorMessages.phoneNumber : ""}
+				</p>
 			</div>
 		</div>
-
-		<NavArrows />
 	</form>
+
+	<NavArrows />
 </div>
 
 <style>

@@ -1,17 +1,20 @@
 <script lang="ts">
+	import { beforeNavigate } from "$app/navigation"
 	import { createForm } from "felte"
 
 	import { addOns } from "../data"
 	import iconCheckmark from "../../lib/images/checkmark.svg"
 	import { userDataStore } from "../userData"
 
-	import NavArrows from "../NavArrows.svelte"
-
-	const { form, data } = createForm({
+	const { form, data, createSubmitHandler } = createForm({
 		onSubmit: (values) => {
 			userDataStore.onSubmit(values)
 		},
 	})
+
+	const handleSubmit = createSubmitHandler()
+
+	beforeNavigate(() => handleSubmit())
 </script>
 
 <div class="page">
@@ -55,8 +58,6 @@
 				</li>
 			{/each}
 		</ul>
-
-		<NavArrows />
 	</form>
 </div>
 

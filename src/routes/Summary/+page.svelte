@@ -1,6 +1,5 @@
 <script>
 	import { createForm } from "felte"
-	import NavArrows from "../NavArrows.svelte"
 
 	import { userDataStore, summary } from "../userData"
 
@@ -69,8 +68,6 @@
 				<div class="button__contents">Confirm</div>
 			</button>
 		</div>
-
-		<NavArrows />
 	</form>
 </div>
 

@@ -6,8 +6,6 @@
 
 	import { userDataStore } from "./userData"
 
-	import NavArrows from "./NavArrows.svelte"
-
 	let errorMessages = {
 		name: "",
 		email: "",
@@ -107,8 +105,6 @@
 			</div>
 		</div>
 	</form>
-
-	<NavArrows />
 </div>
 
 <style>

@@ -20,7 +20,6 @@
 <div class="nav-arrows">
 	{#if previousUrl}
 		<button
-			type="submit"
 			class="nav-arrows__button nav-arrows__button--left"
 			aria-label="next step"
 			on:click={() => switchPage(previousUrl)}>
@@ -40,7 +39,6 @@
 
 	{#if nextUrl}
 		<button
-			type="submit"
 			class="nav-arrows__button nav-arrows__button--right"
 			aria-label="previous step"
 			on:click={() => switchPage(nextUrl)}>

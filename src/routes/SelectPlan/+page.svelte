@@ -1,13 +1,12 @@
 <script lang="ts">
+	import { beforeNavigate } from "$app/navigation"
 	import { createForm } from "felte"
 
 	import { userDataStore } from "../userData"
 
 	import { plans } from "../data"
 
-	import NavArrows from "../NavArrows.svelte"
-
-	const { form, data } = createForm({
+	const { form, data, createSubmitHandler } = createForm({
 		onSubmit: (values: {
 			plan: "arcade" | "advanced" | "pro"
 			billingScheme: "monthly" | "yearly"
@@ -15,7 +14,7 @@
 			userDataStore.onSubmit(values)
 		},
 		initialValues: {
-			plans: "arcade",
+			plan: "arcade",
 			billingScheme: "monthly",
 		},
 	})
@@ -30,6 +29,10 @@
 			return { ...values, billingScheme: billingSchemeSwitched }
 		})
 	}
+
+	const handleSubmit = createSubmitHandler()
+
+	beforeNavigate(() => handleSubmit())
 </script>
 
 <div class="page">
@@ -53,7 +56,7 @@
 							class="card__radio hidden"
 							id={plan.id}
 							value={plan.name}
-							name="plans" />
+							name="plan" />
 
 						<div class="card__title-wrapper">
 							<p class="card__title">{plan.title}</p>
@@ -114,8 +117,6 @@
 				Yearly
 			</label>
 		</fieldset>
-
-		<NavArrows />
 	</form>
 </div>
 

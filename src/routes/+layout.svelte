@@ -8,6 +8,7 @@
 	import { userDataStore } from "./userData"
 
 	import Navigation from "./Navigation.svelte"
+	import NavArrows from "./NavArrows.svelte"
 
 	$: console.log($userDataStore)
 </script>
@@ -19,6 +20,7 @@
 
 	<main class="card">
 		<slot />
+		<NavArrows />
 	</main>
 </div>
 
@@ -46,6 +48,8 @@
 
 	.card {
 		width: 100%;
+		padding-block-end: 2rem;
+
 		grid-area: main;
 	}
 </style>

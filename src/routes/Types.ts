@@ -10,5 +10,5 @@ export interface UserData {
 	phoneNumber?: string
 	plan?: "arcade" | "advanced" | "pro"
 	billingScheme?: "monthly" | "yearly"
-	addOns?: Array<"onlineService" | "largerStorage" | "customizableProfile">
+	addOns?: Array<string>
 }

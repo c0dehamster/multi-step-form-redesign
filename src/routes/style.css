@@ -183,7 +183,6 @@ a {
 /* Elements common between pages */
 .page {
 	width: 100%;
-	padding-block: 3rem;
 
 	display: grid;
 	justify-items: center;
@@ -210,5 +209,9 @@ a {
 .form {
 	width: 100%;
 	display: grid;
+	justify-items: center;
 	gap: 2.5rem;
+}
+
+@media screen and (width > 40rem) {
 }

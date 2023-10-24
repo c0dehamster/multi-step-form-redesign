@@ -85,4 +85,14 @@
 	.nav-arrows__link:focus {
 		--_nav-arrow-color: var(--color-active);
 	}
+
+	@media screen and (width > 40rem) {
+		.nav-arrows {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			transform: translateY(-50%);
+		}
+	}
 </style>

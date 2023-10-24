@@ -12,33 +12,37 @@
 		phoneNumber: "",
 	}
 
-	const { form, touched, isDirty, isValid, createSubmitHandler } = createForm(
-		{
-			onSubmit: (values) => {
-				userDataStore.onSubmit(values)
-				return values
-			},
+	const { form, touched, isValid, createSubmitHandler } = createForm({
+		onSubmit: (values) => {
+			userDataStore.onSubmit(values)
+			return values
+		},
 
-			validate: (values) => {
-				/* Validates on input. Prevents form submission.
+		validate: (values) => {
+			/* Validates on input. Prevents form submission.
 			$errors is only updated upon submitting
 			hense errorMessages workaround */
-				const errors = {
-					name: "",
-					email: "",
-					phoneNumber: "",
-				}
+			const errors = {
+				name: "",
+				email: "",
+				phoneNumber: "",
+			}
 
-				if (values.name === "") errors.name = "Cannot be empty"
-				if (values.email === "") errors.email = "Cannot be empty"
-				if (values.phoneNumber === "")
-					errors.phoneNumber = "Cannot be empty"
+			if (values.name === "") errors.name = "Cannot be empty"
+			if (values.email === "") errors.email = "Cannot be empty"
+			if (values.phoneNumber === "")
+				errors.phoneNumber = "Cannot be empty"
 
-				errorMessages = errors
-				return errors
-			},
-		}
-	)
+			errorMessages = errors
+			return errors
+		},
+
+		initialValues: {
+			name: $userDataStore.name,
+			email: $userDataStore.email,
+			phoneNumber: $userDataStore.phoneNumber,
+		},
+	})
 
 	const handleSubmit = createSubmitHandler()
 
@@ -46,9 +50,9 @@
 	the callback of beforeNavigate. THat is strange */
 
 	beforeNavigate(({ cancel }) => {
-		if (!$isDirty || !$isValid) {
+		if (!$isValid) {
 			console.log("Navigation cancelled:", errorMessages)
-			cancel()
+			/* cancel() */
 			return
 		}
 
@@ -109,6 +113,8 @@
 
 <style>
 	.form__inputs {
+		width: 100%;
+		max-width: 32rem;
 		padding: 2rem;
 		display: grid;
 		gap: 2.5rem;
@@ -168,5 +174,10 @@
 		opacity: 0.25;
 	}
 
-	/* Active states */
+	@media screen and (width > 40rem) {
+		.form__inputs {
+			padding: 2.5rem;
+			gap: 2.5rem;
+		}
+	}
 </style>

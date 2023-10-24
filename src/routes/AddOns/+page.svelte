@@ -10,6 +10,9 @@
 		onSubmit: (values) => {
 			userDataStore.onSubmit(values)
 		},
+		initialValues: {
+			addOns: $userDataStore.addOns,
+		},
 	})
 
 	const handleSubmit = createSubmitHandler()

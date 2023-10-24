@@ -13,7 +13,9 @@
 	$: console.log($userDataStore)
 </script>
 
-<div class="app" style="--background-mobile: url({backgroundPatternMobile});">
+<div
+	class="app"
+	style="--background-mobile: url({backgroundPatternMobile}); --background-pattern-desktop: url({backgroundPatternDesktop});">
 	<aside class="navigation">
 		<Navigation {navigationData} />
 	</aside>
@@ -47,9 +49,38 @@
 	}
 
 	.card {
-		width: 100%;
-		padding-block-end: 2rem;
-
+		position: relative;
 		grid-area: main;
+		width: 100%;
+		max-width: 50rem;
+		height: fit-content;
+		min-height: 45rem;
+		padding-block: 3rem;
+	}
+
+	@media screen and (width > 40rem) {
+		.app {
+			padding-inline: 2.5rem;
+			grid-template-rows: 6.25rem 1fr;
+
+			background: var(--background-app);
+		}
+
+		.navigation {
+			grid-row: 1 / 2;
+		}
+
+		.card {
+			padding-inline: 5rem;
+			margin-block: 7.5rem;
+			grid-row: 1 / 3;
+
+			align-self: center;
+
+			background-color: var(--color-background-page);
+			background-image: var(--background-pattern-desktop);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
 	}
 </style>

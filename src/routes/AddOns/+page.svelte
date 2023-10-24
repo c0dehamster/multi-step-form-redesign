@@ -97,6 +97,7 @@
 		position: relative;
 		z-index: 1;
 		display: grid;
+		grid-template-columns: auto 1fr 1.5rem;
 		grid-template-areas:
 			"title price checkbox"
 			"description description description ";
@@ -146,6 +147,7 @@
 	}
 
 	.card__description {
+		/* To prevent line break */
 		min-width: max-content;
 		grid-area: description;
 	}
@@ -162,7 +164,6 @@
 			clip-path: polygon(0 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
 		}
 		.card__contents {
-			grid-template-columns: 1fr 2fr 1.5rem;
 			grid-template-areas:
 				"title title checkbox"
 				"description price .";

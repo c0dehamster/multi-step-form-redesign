@@ -73,6 +73,7 @@
 
 <style>
 	.summary {
+		width: 100%;
 		padding-inline: 1rem;
 		display: grid;
 
@@ -90,7 +91,8 @@
 			"name price"
 			"change price";
 		align-items: center;
-		gap: 0.25rem;
+		row-gap: 0.25rem;
+		column-gap: 2rem;
 
 		border-bottom: 1px solid var(--color-text-main);
 	}
@@ -188,5 +190,40 @@
 	.button:hover::before,
 	.button:focus::before {
 		opacity: 1;
+	}
+
+	@container form (width > 32rem) {
+		.summary > *:where(:not(:last-child)) {
+			padding: 2.5rem;
+		}
+
+		.plan {
+			grid-template-columns: auto 1fr 1fr;
+			grid-template-areas: "name change price";
+		}
+
+		.plan__name,
+		.plan__price,
+		.total {
+			font-size: var(--font-size-400);
+		}
+
+		.add-ons {
+			gap: 2rem;
+		}
+
+		.button {
+			justify-self: end;
+			width: 12.5rem;
+		}
+	}
+
+	@media screen and (width > 50rem) {
+		.plan {
+			grid-template-columns: auto 1fr;
+			grid-template-areas:
+				"name price"
+				"change price";
+		}
 	}
 </style>

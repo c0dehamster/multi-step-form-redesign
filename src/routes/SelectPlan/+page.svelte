@@ -129,14 +129,16 @@
 		width: 100%;
 		padding-inline: 2rem;
 		display: grid;
+
+		grid-template-columns: 1fr 1fr 1fr;
+
 		gap: 2rem;
 	}
 
 	/* Individual card */
 
 	.card {
-		padding-inline-end: 1.25rem;
-		height: 3.5rem;
+		height: 13.5rem;
 
 		container-type: size;
 
@@ -144,16 +146,15 @@
 		border: 1px solid var(--_card-color);
 	}
 
-	.card:has(.card__bonus) {
-		height: 5rem; /* Solution for overflow is needed */
-	}
-
 	.card__contents {
 		height: 100%;
 
 		display: grid;
-		grid-template-areas: "title details";
-		align-items: center;
+		grid-template-rows: 3.5rem 1fr;
+		grid-template-areas:
+			"title"
+			"details";
+		gap: 1rem;
 	}
 
 	.card__title-wrapper {
@@ -171,8 +172,7 @@
 		content: "";
 		position: absolute;
 
-		inset: 0 -2rem 0 0;
-		clip-path: polygon(0 0, 100% 0, calc(100% - 57cqb) 100%, 0 100%);
+		inset: 0;
 
 		background-color: var(--color-background-highlight);
 	}
@@ -186,19 +186,17 @@
 	}
 
 	.card__details {
+		height: fit-content;
+		padding-inline: 1.25rem;
+
 		grid-area: details;
+
 		display: grid;
 		gap: 0.5rem;
 	}
 
 	.card__price {
-		padding-inline-start: 2.5rem;
-
 		opacity: 0.5;
-	}
-
-	.card__bonus {
-		padding-inline-start: 1rem;
 	}
 
 	/* Radio button */
@@ -208,7 +206,7 @@
 		aspect-ratio: 1;
 
 		position: absolute;
-		top: 1rem;
+		bottom: 1.25rem;
 		right: 1.25rem;
 
 		border-radius: 50%;
@@ -308,5 +306,57 @@
 		aspect-ratio: 1;
 
 		border: 1px solid var(--_switch-color);
+	}
+
+	/* Container queries seem to be messing up hot reloading nith Vite.
+	Manual refreshing might be required */
+
+	@container form (width < 32rem) {
+		.form__radio-cards {
+			grid-template-columns: auto;
+		}
+
+		.card {
+			padding-inline-end: 1.25rem;
+
+			height: 3.5rem;
+		}
+
+		.card:has(.card__bonus) {
+			height: 5rem; /* Solution for overflow is needed */
+		}
+
+		.card__contents {
+			grid-template-rows: auto;
+			grid-template-columns: 1fr 2fr;
+			grid-template-areas: "title details";
+			align-items: center;
+		}
+
+		.card__title-wrapper::before {
+			content: "";
+			position: absolute;
+
+			inset: 0 -2rem 0 0;
+			clip-path: polygon(0 0, 100% 0, calc(100% - 57cqb) 100%, 0 100%);
+		}
+
+		.card__details {
+			padding: 0rem;
+		}
+
+		.card__price {
+			padding-inline-start: 2.5rem; /* For positioning on the diagonal */
+		}
+
+		.card__bonus {
+			padding-inline-start: 1rem;
+		}
+
+		.card__circle {
+			top: 50%;
+			bottom: auto;
+			transform: translateY(-50%);
+		}
 	}
 </style>

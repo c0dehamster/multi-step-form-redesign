@@ -207,6 +207,8 @@ a {
 }
 
 .form {
+	container-type: inline-size;
+	container-name: form;
 	width: 100%;
 	display: grid;
 	justify-items: center;

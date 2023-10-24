@@ -66,6 +66,7 @@
 
 <style>
 	.add-ons {
+		width: 100%;
 		padding-inline: 2rem;
 
 		display: flex;
@@ -75,9 +76,6 @@
 
 	.card {
 		position: relative;
-
-		padding-block: 0.75rem;
-		padding-inline: 1rem;
 
 		border: 1px solid var(--color-text-main);
 	}
@@ -94,14 +92,15 @@
 	}
 
 	.card__contents {
+		padding-block: 0.75rem;
+		padding-inline: 1rem;
 		position: relative;
 		z-index: 1;
 		display: grid;
 		grid-template-areas:
 			"title price checkbox"
 			"description description description ";
-		column-gap: 1rem;
-		row-gap: 1.5rem;
+		gap: 1.5rem;
 		align-items: center;
 	}
 
@@ -147,6 +146,27 @@
 	}
 
 	.card__description {
+		min-width: max-content;
 		grid-area: description;
+	}
+
+	@media (width < 40rem) {
+		.add-ons {
+			padding: 2rem;
+		}
+	}
+
+	@container form (width > 32rem) {
+		.card::before {
+			width: calc(50% + 2rem);
+			clip-path: polygon(0 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+		}
+		.card__contents {
+			grid-template-columns: 1fr 2fr 1.5rem;
+			grid-template-areas:
+				"title title checkbox"
+				"description price .";
+			column-gap: 2.5rem;
+		}
 	}
 </style>

@@ -127,7 +127,6 @@
 
 	.form__radio-cards {
 		width: 100%;
-		padding-inline: 2rem;
 		display: grid;
 
 		grid-template-columns: 1fr 1fr 1fr;
@@ -310,6 +309,12 @@
 
 	/* Container queries seem to be messing up hot reloading nith Vite.
 	Manual refreshing might be required */
+
+	@media (width < 40rem) {
+		.form__radio-cards {
+			padding-inline: 2rem;
+		}
+	}
 
 	@container form (width < 32rem) {
 		.form__radio-cards {

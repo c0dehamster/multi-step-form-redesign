@@ -132,7 +132,7 @@
 
 		grid-template-columns: 1fr 1fr 1fr;
 
-		gap: 2rem;
+		gap: max(7.5%, 2rem);
 	}
 
 	/* Individual card */

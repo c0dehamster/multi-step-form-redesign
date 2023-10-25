@@ -77,3 +77,5 @@ export const summary = derived(userDataStore, ($userDataStore) => {
 		total,
 	}
 })
+
+export const isComplete = writable(false)

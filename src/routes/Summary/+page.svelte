@@ -2,7 +2,7 @@
 	import { goto } from "$app/navigation"
 	import { createForm } from "felte"
 
-	import { userDataStore, summary } from "../userData"
+	import { userDataStore, summary, isComplete } from "../userData"
 
 	const { form } = createForm({
 		onSubmit: (values) => {
@@ -10,7 +10,7 @@
 		},
 	}) // For debugging
 
-	const confirm = () => goto("/Success")
+	const confirm = () => isComplete.set(true)
 </script>
 
 <div class="page">
@@ -229,5 +229,4 @@
 				"change price";
 		}
 	}
-
 </style>

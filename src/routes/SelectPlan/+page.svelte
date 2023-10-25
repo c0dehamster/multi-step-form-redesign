@@ -364,4 +364,10 @@
 			transform: translateY(-50%);
 		}
 	}
+
+	@media screen and (width > 45rem) {
+		.page {
+			gap: 3rem;
+		}
+	}
 </style>

@@ -81,7 +81,7 @@
 		}
 	}
 
-	@media screen and (width > 64rem) {
+	@media screen and (width > 80rem) {
 		.nav__list {
 			padding-inline-start: 0rem;
 

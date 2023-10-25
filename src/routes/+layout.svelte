@@ -84,7 +84,7 @@
 		}
 	}
 
-	@media screen and (width > 64rem) {
+	@media screen and (width > 80rem) {
 		.app {
 			grid-template-rows: auto;
 			grid-template-columns: 12rem 1fr;

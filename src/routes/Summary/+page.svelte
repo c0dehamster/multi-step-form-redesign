@@ -1,4 +1,5 @@
 <script>
+	import { goto } from "$app/navigation"
 	import { createForm } from "felte"
 
 	import { userDataStore, summary } from "../userData"
@@ -8,6 +9,8 @@
 			console.log(values)
 		},
 	}) // For debugging
+
+	const confirm = () => goto("/Success")
 </script>
 
 <div class="page">
@@ -64,7 +67,7 @@
 				{/if}
 			</div>
 
-			<button class="button button--outline">
+			<button class="button button--outline" on:click={confirm}>
 				<div class="button__contents">Confirm</div>
 			</button>
 		</div>
@@ -226,4 +229,5 @@
 				"change price";
 		}
 	}
+
 </style>

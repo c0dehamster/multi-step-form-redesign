@@ -63,7 +63,7 @@
 
 		color: var(--_color);
 
-		font-size: var(--font-size-700);
+		font-size: var(--font-size-800);
 		line-height: 1;
 	}
 
@@ -78,6 +78,20 @@
 
 		.nav__label {
 			display: none;
+		}
+	}
+
+	@media screen and (width > 64rem) {
+		.nav__list {
+			padding-inline-start: 0rem;
+
+			flex-direction: column;
+			gap: 2.5rem;
+
+			align-items: baseline;
+
+			border-bottom: none;
+			border-right: 1px solid;
 		}
 	}
 </style>

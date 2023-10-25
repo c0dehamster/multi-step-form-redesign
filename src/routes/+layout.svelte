@@ -83,4 +83,49 @@
 			background-size: cover;
 		}
 	}
+
+	@media screen and (width > 64rem) {
+		.app {
+			grid-template-rows: auto;
+			grid-template-columns: 12rem 1fr;
+			grid-template-areas: "navigation main";
+			align-items: center;
+		}
+
+		.navigation {
+			grid-row: 1 / 2;
+			grid-column: 1 / 2;
+		}
+
+		.card {
+			grid-row: 1 / 2;
+			grid-column: 1 / 3;
+
+			margin: 0rem;
+		}
+
+		.card::before,
+		.card::after {
+			content: "";
+			position: absolute;
+			width: 16rem;
+			height: 10rem;
+		}
+
+		.card::before {
+			top: -1.5rem;
+			left: -1.5rem;
+
+			border-top: 1px solid var(--color-text-main);
+			border-left: 1px solid var(--color-text-main);
+		}
+
+		.card::after {
+			bottom: -1.5rem;
+			right: -1.5rem;
+
+			border-bottom: 1px solid var(--color-text-main);
+			border-right: 1px solid var(--color-text-main);
+		}
+	}
 </style>

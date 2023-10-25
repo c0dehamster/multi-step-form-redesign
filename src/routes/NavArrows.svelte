@@ -74,6 +74,7 @@
 	}
 
 	.nav-arrows__icon {
+		position: relative;
 		height: 100%;
 	}
 
@@ -93,6 +94,45 @@
 			left: 0;
 			right: 0;
 			transform: translateY(-50%);
+		}
+
+		.nav-arrows__link {
+			height: 4rem;
+		}
+	}
+
+	@media screen and (width > 64rem) {
+		.nav-arrows {
+			left: -1rem;
+			right: -1rem;
+			width: auto;
+
+			padding: 0rem;
+		}
+
+		.nav-arrows__link {
+			height: 8rem;
+			padding-block: 2rem;
+		}
+
+		.nav-arrows__link::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+
+			background-color: var(--color-background-page);
+		}
+
+		.nav-arrows__link--left::before {
+			transform: translateX(-0.5rem);
+
+			clip-path: polygon(77% 0, 100% 0, 100% 100%, 77% 100%, 0 50%);
+		}
+
+		.nav-arrows__link--right::before {
+			transform: translateX(0.5rem);
+
+			clip-path: polygon(0 0, 23% 0, 100% 50%, 23% 100%, 0 100%);
 		}
 	}
 </style>

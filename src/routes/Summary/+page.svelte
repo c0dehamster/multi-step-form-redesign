@@ -1,16 +1,9 @@
 <script>
 	import { goto } from "$app/navigation"
-	import { createForm } from "felte"
 
 	import { userDataStore, summary, isComplete } from "../userData"
 
-	const { form } = createForm({
-		onSubmit: (values) => {
-			console.log(values)
-		},
-	}) // For debugging
-
-	const confirm = () => isComplete.set(true)
+	const confirm = () => goto("/Success")
 </script>
 
 <div class="page">
@@ -21,61 +14,62 @@
 		</p>
 	</header>
 
-	<form use:form class="form">
-		<div class="summary">
-			<div class="plan">
-				<p class="plan__name">
-					{$summary.planInfo.title} ({$summary.planInfo
-						.billingScheme})
-				</p>
-				<a href="/" class="plan__to-step-one">Change</a>
+	<div class="summary">
+		<div class="plan">
+			<p class="plan__name">
+				{$summary.planInfo.title} ({$summary.planInfo.billingScheme})
+			</p>
+			<a href="/" class="plan__to-step-one">Change</a>
 
-				{#if $summary.planInfo.billingScheme === "monthly"}
-					<p class="plan__price">${$summary.planInfo.price}/month</p>
-				{:else}
-					<p class="plan__price">${$summary.planInfo.price}/year</p>
-				{/if}
-			</div>
-
-			{#if $summary.addOnsInfo.length > 0}
-				<ul class="add-ons">
-					{#each $summary.addOnsInfo as addOn}
-						<li class="add-ons__list-item">
-							<p class="add-ons__name">{addOn.title}</p>
-
-							{#if $userDataStore.billingScheme === "monthly"}
-								<p class="add-ons__price">
-									+${addOn.price}/month
-								</p>
-							{:else}
-								<p class="add-ons__price">
-									+${addOn.price}/year
-								</p>
-							{/if}
-						</li>
-					{/each}
-				</ul>
+			{#if $summary.planInfo.billingScheme === "monthly"}
+				<p class="plan__price">${$summary.planInfo.price}/month</p>
+			{:else}
+				<p class="plan__price">${$summary.planInfo.price}/year</p>
 			{/if}
-
-			<div class="total">
-				{#if $summary.planInfo.billingScheme === "monthly"}
-					<p class="total__name">Total (per month)</p>
-					<p class="total__cost">${$summary.total}/month</p>
-				{:else}
-					<p class="total__name">Total (per year)</p>
-					<p class="total__cost">${$summary.total}/year</p>
-				{/if}
-			</div>
-
-			<button class="button button--outline" on:click={confirm}>
-				<div class="button__contents">Confirm</div>
-			</button>
 		</div>
-	</form>
+
+		{#if $summary.addOnsInfo.length > 0}
+			<ul class="add-ons">
+				{#each $summary.addOnsInfo as addOn}
+					<li class="add-ons__list-item">
+						<p class="add-ons__name">{addOn.title}</p>
+
+						{#if $userDataStore.billingScheme === "monthly"}
+							<p class="add-ons__price">
+								+${addOn.price}/month
+							</p>
+						{:else}
+							<p class="add-ons__price">
+								+${addOn.price}/year
+							</p>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		{/if}
+
+		<div class="total">
+			{#if $summary.planInfo.billingScheme === "monthly"}
+				<p class="total__name">Total (per month)</p>
+				<p class="total__cost">${$summary.total}/month</p>
+			{:else}
+				<p class="total__name">Total (per year)</p>
+				<p class="total__cost">${$summary.total}/year</p>
+			{/if}
+		</div>
+
+		<button class="button button--outline" on:click={confirm}>
+			<div class="button__contents">Confirm</div>
+		</button>
+	</div>
 </div>
 
 <style>
 	.summary {
+		/* To position summary above the NavArrows */
+		position: relative;
+		z-index: 2;
+
 		width: 100%;
 		padding-inline: 1rem;
 		display: grid;
@@ -114,6 +108,8 @@
 		border-bottom: 1px solid;
 
 		font-size: var(--font-size-200);
+
+		transition: opacity 100ms ease-in;
 	}
 
 	.plan__price {
@@ -165,7 +161,7 @@
 	.button__contents {
 		width: 100%;
 		height: 3rem;
-		z-index: 1;
+		/* z-index: 1; */
 
 		display: inline-flex;
 		justify-content: center;
@@ -177,6 +173,8 @@
 
 		position: absolute;
 		inset: 0;
+		z-index: -1;
+
 		background-color: var(--color-active);
 		box-shadow: 0 0 2rem 0 hsl(308, 100%, 42%, 0.5);
 
@@ -184,18 +182,22 @@
 		transition: opacity 100ms linear;
 	}
 
+	.plan__to-step-one:hover {
+		opacity: 1;
+	}
+
 	.button:hover,
-	.button:focus {
+	.button:focus-visible {
 		color: var(--color-background-page);
 		text-shadow: none;
 	}
 
 	.button:hover::before,
-	.button:focus::before {
+	.button:focus-visible::before {
 		opacity: 1;
 	}
 
-	@container form (width > 32rem) {
+	@media screen and (width > 40rem) {
 		.summary > *:where(:not(:last-child)) {
 			padding: 2.5rem;
 		}

@@ -54,7 +54,7 @@
 		width: 100%;
 		max-width: 50rem;
 		height: fit-content;
-		min-height: 45rem;
+		min-height: 40rem;
 		padding-block: 3rem;
 	}
 
@@ -101,7 +101,7 @@
 			grid-row: 1 / 2;
 			grid-column: 1 / 3;
 
-			margin: 0rem;
+			margin-block: 2.5rem;
 		}
 
 		.card::before,

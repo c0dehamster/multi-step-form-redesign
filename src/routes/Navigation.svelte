@@ -1,16 +1,26 @@
 <script lang="ts">
+	import { page } from "$app/stores"
+
 	export let navigationData: Array<{
 		id: number
 		name: string
 		address: string
 	}>
+
+	$: currentUrl = $page.url.pathname
 </script>
 
 <nav class="nav">
 	<ol class="nav__list">
 		{#each navigationData as listItem}
 			<li class="nav__list-item">
-				<a href={listItem.address} class="nav__link">
+				<a
+					href={listItem.address}
+					class={`nav__link ${
+						listItem.address === currentUrl
+							? "nav__link--active"
+							: ""
+					}`}>
 					<div class="nav__label">
 						<p class="nav__step">Step {listItem.id}</p>
 						<p class="nav__name">{listItem.name}</p>
@@ -53,8 +63,8 @@
 	}
 
 	.nav__link:hover,
-	.nav__link:focus,
-	.nav__link:active {
+	.nav__link:focus-visible,
+	.nav__link--active {
 		--_color: var(--color-active);
 	}
 
@@ -62,6 +72,7 @@
 		content: counter(navigation);
 
 		color: var(--_color);
+		transition: color 100ms ease-in;
 
 		font-size: var(--font-size-800);
 		line-height: 1;
@@ -69,6 +80,7 @@
 
 	.nav__label {
 		color: var(--_color);
+		transition: color 100ms ease-in;
 	}
 
 	@media screen and (width < 45rem) {

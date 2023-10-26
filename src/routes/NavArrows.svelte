@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { page } from "$app/stores"
 
-	import { navigationData } from "./data"
+	export let navigationData: Array<{
+		id: number
+		name: string
+		address: string
+	}>
 
 	$: currentUrl = $page.url.pathname // Atlernatively, the current URL could be passed as a prop
 	$: currentIndex = navigationData.findIndex(
@@ -80,6 +84,8 @@
 
 	.nav-arrows__icon path {
 		fill: var(--_nav-arrow-color);
+
+		transition: fill 100ms ease-in;
 	}
 
 	.nav-arrows__link:hover,

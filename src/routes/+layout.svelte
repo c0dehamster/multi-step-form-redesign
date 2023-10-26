@@ -1,7 +1,6 @@
 <script lang="ts">
 	import "./style.css"
 
-	import backgroundPatternMobile from "../lib/images/background-pattern-mobile.svg"
 	import backgroundPatternDesktop from "../lib/images/background-pattern-desktop.svg"
 
 	import { navigationData } from "./data"
@@ -14,7 +13,7 @@
 
 <div
 	class="app"
-	style="--background-mobile: url({backgroundPatternMobile}); --background-pattern-desktop: url({backgroundPatternDesktop});">
+	style="--background-pattern-desktop: url({backgroundPatternDesktop});">
 	{#if !$isComplete}
 		<aside class="navigation">
 			<Navigation {navigationData} />
@@ -22,12 +21,12 @@
 
 		<main class="card">
 			<slot />
-			<NavArrows />
+			<NavArrows {navigationData} />
 		</main>
 	{:else}
 		<!-- I think users should not be able to navigate back to the summary
-		after submitting hence success message as a component rather a separate route.
-		Tell me if I am wrong -->
+		after submitting the form hence the success message as a component
+		rather than a separate route. Tell me if I am wrong -->
 		<div class="success-message-wrapper">
 			<SuccessMessage />
 		</div>

@@ -184,6 +184,10 @@ a {
 .page {
 	width: 100%;
 
+	/* To position summary above the NavArrows */
+	position: relative;
+	z-index: 2;
+
 	display: grid;
 	justify-items: center;
 	gap: 1.5rem;
@@ -213,7 +217,4 @@ a {
 	display: grid;
 	justify-items: center;
 	gap: 2.5rem;
-}
-
-@media screen and (width > 40rem) {
 }

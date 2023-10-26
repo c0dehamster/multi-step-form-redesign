@@ -66,10 +66,6 @@
 
 <style>
 	.summary {
-		/* To position summary above the NavArrows */
-		position: relative;
-		z-index: 2;
-
 		width: 100%;
 		padding-inline: 1rem;
 		display: grid;

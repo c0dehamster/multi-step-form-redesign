@@ -83,7 +83,7 @@
 	}
 
 	.nav-arrows__link:hover,
-	.nav-arrows__link:focus {
+	.nav-arrows__link:focus-visible {
 		--_nav-arrow-color: var(--color-active);
 	}
 

@@ -166,6 +166,7 @@ a {
 
 .button {
 	position: relative;
+	isolation: isolate;
 
 	min-width: fit-content;
 

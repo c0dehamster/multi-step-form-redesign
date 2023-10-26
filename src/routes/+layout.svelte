@@ -5,25 +5,30 @@
 	import backgroundPatternDesktop from "../lib/images/background-pattern-desktop.svg"
 
 	import { navigationData } from "./data"
-	import { userDataStore } from "./userData"
+	import { isComplete } from "./userData"
 
 	import Navigation from "./Navigation.svelte"
 	import NavArrows from "./NavArrows.svelte"
-
-	$: console.log($userDataStore)
+	import SuccessMessage from "./SuccessMessage.svelte"
 </script>
 
 <div
 	class="app"
 	style="--background-mobile: url({backgroundPatternMobile}); --background-pattern-desktop: url({backgroundPatternDesktop});">
-	<aside class="navigation">
-		<Navigation {navigationData} />
-	</aside>
+	{#if !$isComplete}
+		<aside class="navigation">
+			<Navigation {navigationData} />
+		</aside>
 
-	<main class="card">
-		<slot />
-		<NavArrows />
-	</main>
+		<main class="card">
+			<slot />
+			<NavArrows />
+		</main>
+	{:else}
+		<div class="success-message-wrapper">
+			<SuccessMessage />
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -56,6 +61,16 @@
 		height: fit-content;
 		min-height: 40rem;
 		padding-block: 3rem;
+	}
+
+	.success-message-wrapper {
+		height: 100vh;
+		width: 100%;
+
+		display: grid;
+		place-items: center;
+
+		background-image: var(--background-app);
 	}
 
 	@media screen and (width > 40rem) {
@@ -126,6 +141,10 @@
 
 			border-bottom: 1px solid var(--color-text-main);
 			border-right: 1px solid var(--color-text-main);
+		}
+
+		.success-message-wrapper {
+			grid-column: 1 / 3;
 		}
 	}
 </style>

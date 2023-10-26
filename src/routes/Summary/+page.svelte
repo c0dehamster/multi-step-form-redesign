@@ -1,9 +1,7 @@
 <script>
-	import { goto } from "$app/navigation"
-
 	import { userDataStore, summary, isComplete } from "../userData"
 
-	const confirm = () => goto("/Success")
+	const confirm = () => isComplete.set(true)
 </script>
 
 <div class="page">
@@ -136,8 +134,6 @@
 	}
 
 	.button {
-		isolation: isolate;
-
 		margin-inline: 1.5rem;
 		margin-block: 2rem 2.5rem;
 

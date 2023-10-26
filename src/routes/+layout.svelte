@@ -25,6 +25,9 @@
 			<NavArrows />
 		</main>
 	{:else}
+		<!-- I think users should not be able to navigate back to the summary
+		after submitting hence success message as a component rather a separate route.
+		Tell me if I am wrong -->
 		<div class="success-message-wrapper">
 			<SuccessMessage />
 		</div>

@@ -143,6 +143,12 @@
 
 		--_card-color: var(--color-text-main);
 		border: 1px solid var(--_card-color);
+
+		transition: transform 200ms ease-out;
+	}
+
+	.card:hover {
+		transform: scale(1.05);
 	}
 
 	.card__contents {
@@ -201,7 +207,7 @@
 	/* Radio button */
 
 	.card__circle {
-		width: 1.5rem;
+		width: 2rem;
 		aspect-ratio: 1;
 
 		position: absolute;
@@ -220,7 +226,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 
-		width: 0.75rem;
+		width: 1rem;
 		border-radius: 50%;
 		aspect-ratio: 1;
 
@@ -359,9 +365,15 @@
 		}
 
 		.card__circle {
+			width: 1.5rem;
+
 			top: 50%;
 			bottom: auto;
 			transform: translateY(-50%);
+		}
+
+		.card__circle::before {
+			width: 0.75rem;
 		}
 	}
 

@@ -78,6 +78,12 @@
 		position: relative;
 
 		border: 1px solid var(--color-text-main);
+
+		transition: transform 200ms ease-out;
+	}
+
+	.card:hover {
+		transform: scale(1.05);
 	}
 
 	.card::before {

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { beforeNavigate } from "$app/navigation"
 	import { createForm } from "felte"
-
 	import { userDataStore } from "../userData"
 
 	import { plans } from "../data"
@@ -21,6 +20,8 @@
 		},
 	})
 
+	/* Code for the custom toggle switch */
+
 	const option1 = {
 		label: "Monthly",
 		value: "monthly",
@@ -38,6 +39,8 @@
 			return { ...values, billingScheme: value }
 		})
 	}
+
+	/* Trigger form submit when the user goes to the next/previous page */
 
 	const handleSubmit = createSubmitHandler()
 

@@ -15,6 +15,8 @@
 		},
 	})
 
+	/* Trigger form submit when the user goes to the next/previous page */
+
 	const handleSubmit = createSubmitHandler()
 
 	beforeNavigate(() => handleSubmit())

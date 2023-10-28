@@ -9,6 +9,10 @@
 	import Navigation from "./Navigation.svelte"
 	import NavArrows from "./NavArrows.svelte"
 	import SuccessMessage from "./SuccessMessage.svelte"
+
+	$: {
+		console.log($userDataStore)
+	}
 </script>
 
 <div

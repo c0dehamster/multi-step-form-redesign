@@ -6,6 +6,8 @@
 
 	import { plans } from "../data"
 
+	import ToggleSwitch from "./ToggleSwitch.svelte"
+
 	const { form, data, createSubmitHandler } = createForm({
 		onSubmit: (values: {
 			plan: "arcade" | "advanced" | "pro"
@@ -14,19 +16,26 @@
 			userDataStore.onSubmit(values)
 		},
 		initialValues: {
-			plan: "arcade",
-			billingScheme: "monthly",
+			plan: $userDataStore.plan,
+			billingScheme: $userDataStore.billingScheme,
 		},
 	})
 
-	let billing = "monthly"
+	const option1 = {
+		label: "Monthly",
+		value: "monthly",
+		checked: $userDataStore.billingScheme === "monthly",
+	}
 
-	const changeBillingScheme = () => {
+	const option2 = {
+		label: "Yearly",
+		value: "yearly",
+		checked: $userDataStore.billingScheme === "yearly",
+	}
+
+	const changeBillingScheme = (value: "monthly" | "yearly") => {
 		data.update((values) => {
-			const billingSchemeSwitched =
-				values.billingScheme === "monthly" ? "yearly" : "monthly"
-
-			return { ...values, billingScheme: billingSchemeSwitched }
+			return { ...values, billingScheme: value }
 		})
 	}
 
@@ -81,42 +90,10 @@
 			{/each}
 		</ul>
 
-		<!-- This is an custom way to make a two-option 
-		toggle switch, use with caution -->
-
-		<fieldset class="billing-options">
-			<legend class="sr-only">Select monthly or yearly billing</legend>
-
-			<label
-				for="monthly"
-				class="billing-options__label billing-options__label--left">
-				Monthly
-			</label>
-
-			<input
-				type="radio"
-				class="billing-options__radio hidden"
-				value="monthly"
-				id="monthly"
-				name="billingScheme" />
-			<button
-				class="billing-options__switch"
-				aria-label="Switch billing scheme"
-				on:click|preventDefault={changeBillingScheme} />
-
-			<input
-				type="radio"
-				class="billing-options__radio hidden"
-				value="yearly"
-				id="yearly"
-				name="billingScheme" />
-
-			<label
-				for="yearly"
-				class="billing-options__label billing-options__label--right">
-				Yearly
-			</label>
-		</fieldset>
+		<ToggleSwitch
+			{option1}
+			{option2}
+			on:toggle={(e) => changeBillingScheme(e.detail)} />
 	</form>
 </div>
 
@@ -239,78 +216,6 @@
 
 	.card__contents:has(.card__radio:checked) > .card__circle::before {
 		opacity: 1;
-	}
-
-	/* Toggle switch */
-
-	.billing-options {
-		display: grid;
-		grid-template-columns: 1fr 3rem 1fr;
-		gap: 2rem;
-		align-items: center;
-
-		border: none;
-	}
-
-	.billing-options__label {
-		position: relative;
-
-		--_label-color: var(--color-text-main);
-	}
-
-	.billing-options__label::before {
-		content: "";
-		position: absolute;
-		left: 50%;
-		right: 50%;
-		bottom: 0;
-		transition: 100ms ease-in;
-
-		border-bottom: 1px solid var(--_label-color);
-	}
-
-	.billing-options__label:hover::before,
-	.billing-options__label:focus::before {
-		left: 0;
-		right: 0;
-	}
-
-	.billing-options__label--left {
-		justify-self: end;
-	}
-
-	.billing-options__label--right {
-		justify-self: baseline;
-	}
-
-	.billing-options__switch {
-		position: relative;
-
-		width: 3rem;
-		height: 1.5rem;
-
-		background: transparent;
-		--_switch-color: var(--color-text-main);
-		border: 1px solid var(--_switch-color);
-	}
-
-	.billing-options__switch:hover,
-	.billing-options__switch:focus {
-		--_switch-color: var(--color-active);
-	}
-
-	.billing-options__switch::before {
-		content: "";
-
-		position: absolute;
-		top: 50%;
-		left: 0.2rem;
-		transform: translateY(-50%);
-
-		width: 1rem;
-		aspect-ratio: 1;
-
-		border: 1px solid var(--_switch-color);
 	}
 
 	/* Container queries seem to be messing up hot reloading nith Vite.

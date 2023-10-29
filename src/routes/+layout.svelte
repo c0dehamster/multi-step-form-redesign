@@ -15,6 +15,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Frontend Mentor | Multi-step form</title>
+</svelte:head>
+
 <div
 	class="app"
 	style="--background-pattern-desktop: url({backgroundPatternDesktop});">

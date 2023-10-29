@@ -4,7 +4,7 @@
 
 	import { addOns } from "../data"
 	import iconCheckmark from "../../lib/images/checkmark.svg"
-	import { userDataStore } from "../userData"
+	import { userDataStore } from "../stores"
 
 	const { form, data, createSubmitHandler } = createForm({
 		onSubmit: (values) => {

@@ -1,5 +1,5 @@
 <script>
-	import { userDataStore, summary, isComplete } from "../userData"
+	import { userDataStore, summary, isComplete } from "../stores"
 
 	const confirm = () => isComplete.set(true)
 </script>

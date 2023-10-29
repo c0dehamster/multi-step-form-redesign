@@ -3,7 +3,7 @@
 
 	import backgroundCheckmark from "../lib/images/checkmark-background.svg"
 
-	import { userDataStore, isComplete } from "./userData"
+	import { userDataStore, isComplete } from "./stores"
 
 	const reset = () => {
 		userDataStore.onReset()

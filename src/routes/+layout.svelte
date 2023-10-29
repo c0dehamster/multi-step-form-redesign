@@ -4,7 +4,7 @@
 	import backgroundPatternDesktop from "../lib/images/background-pattern-desktop.svg"
 
 	import { navigationData } from "./data"
-	import { isComplete, userDataStore } from "./userData"
+	import { isComplete, userDataStore } from "./stores"
 
 	import Navigation from "./Navigation.svelte"
 	import NavArrows from "./NavArrows.svelte"

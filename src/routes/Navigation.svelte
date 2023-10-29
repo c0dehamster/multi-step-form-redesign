@@ -2,15 +2,13 @@
 	import { page } from "$app/stores"
 	import { onMount } from "svelte"
 
+	import type { NavigationItem } from "./Types"
+
 	import linkPointerDesktop from "../lib/images/active-link-pointer-desktop.svg"
 	import linkPointerMobile from "../lib/images/active-link-pointer-mobile.svg"
 	import linkPointerTablet from "../lib/images/active-link-pointer-tablet.svg"
 
-	export let navigationData: Array<{
-		id: number
-		name: string
-		address: string
-	}>
+	export let navigationData: Array<NavigationItem>
 
 	/* The following is to prevent artifacts when the page is reloaded */
 

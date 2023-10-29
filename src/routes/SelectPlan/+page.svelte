@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { beforeNavigate } from "$app/navigation"
 	import { createForm } from "felte"
-	import { userDataStore } from "../userData"
+	import { userDataStore } from "../stores"
 
 	import { plans } from "../data"
 

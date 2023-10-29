@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { page } from "$app/stores"
 
-	export let navigationData: Array<{
-		id: number
-		name: string
-		address: string
-	}>
+	import type { NavigationItem } from "./Types"
+
+	export let navigationData: Array<NavigationItem>
 
 	$: currentUrl = $page.url.pathname // Atlernatively, the current URL could be passed as a prop
 	$: currentIndex = navigationData.findIndex(

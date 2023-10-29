@@ -15,7 +15,10 @@
 
 <div class="nav-arrows">
 	{#if previousUrl}
-		<a href={previousUrl} class="nav-arrows__link nav-arrows__link--left">
+		<a
+			href={previousUrl}
+			class="nav-arrows__link nav-arrows__link--left"
+			aria-label="Go back">
 			<svg
 				class="nav-arrows__icon"
 				width="48"
@@ -31,7 +34,10 @@
 	{/if}
 
 	{#if nextUrl}
-		<a href={nextUrl} class="nav-arrows__link nav-arrows__link--right">
+		<a
+			href={nextUrl}
+			class="nav-arrows__link nav-arrows__link--right"
+			aria-label="Next step">
 			<svg
 				class="nav-arrows__icon"
 				width="48"

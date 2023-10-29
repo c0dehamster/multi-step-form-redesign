@@ -22,18 +22,32 @@
 			/* Validates on input. Prevents form submission.
 			$errors is only updated upon submitting
 			hence errorMessages workaround */
-			const errors = {
-				name: "",
-				email: "",
-				phoneNumber: "",
+			const errors: {
+				name: Array<string>
+				email: Array<string>
+				phoneNumber: Array<string>
+			} = {
+				name: [],
+				email: [],
+				phoneNumber: [],
 			}
 
-			if (values.name === "") errors.name = "Cannot be empty"
-			if (values.email === "") errors.email = "Cannot be empty"
-			if (values.phoneNumber === "")
-				errors.phoneNumber = "Cannot be empty"
+			/* A mock-up regex for validating the email address.
+			A real sign-up form would require a more strict one */
+			const regex = /^\w+@\w+\.\w+$/
 
-			errorMessages = errors
+			if (values.name === "") errors.name.push("Cannot be empty")
+			if (values.email === "") errors.email.push("Cannot be empty")
+			if (!regex.test(values.email))
+				errors.email.push("Please enter a valid email")
+			if (values.phoneNumber === "")
+				errors.phoneNumber.push("Cannot be empty")
+
+			errorMessages = {
+				name: errors.name[0] || "",
+				email: errors.email[0] || "",
+				phoneNumber: errors.phoneNumber[0] || "",
+			}
 			return errors
 		},
 
@@ -44,6 +58,13 @@
 		},
 	})
 
+	const formatNumbersOnly = (e: Event) => {
+		/* Type assertion, othervise "property value
+		does not exist on type eventTarget" is thrown */
+		const target = e.target as HTMLInputElement
+		target.value = target.value.replace(/[^0-9+]/, "")
+	}
+
 	const handleSubmit = createSubmitHandler()
 
 	/* The function to prevent routing has to be passed
@@ -52,7 +73,7 @@
 	beforeNavigate(({ cancel }) => {
 		if (!$isValid) {
 			console.log("Navigation cancelled:", errorMessages)
-			/* cancel() */
+			cancel()
 			return
 		}
 
@@ -102,7 +123,8 @@
 					placeholder="e.g. +1 234 567 890"
 					id="phoneNumber"
 					autocomplete="off"
-					name="phoneNumber" />
+					name="phoneNumber"
+					on:input={(e) => formatNumbersOnly(e)} />
 				<p class="error">
 					{$touched.phoneNumber ? errorMessages.phoneNumber : ""}
 				</p>

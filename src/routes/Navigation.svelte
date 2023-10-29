@@ -58,7 +58,7 @@
 	--pointer-desktop: url({linkPointerDesktop});
 	--pointer-tablet: url({linkPointerTablet});
 	
---initial-pointer-position: {initialPointerPosition};
+	--initial-pointer-position: {initialPointerPosition};
 	--pointer-offset-mobile: {pointerOffsetMobile};
 	--pointer-offset-desktop: {pointerOffsetDesktop};">
 	<ol

@@ -75,24 +75,25 @@ I found the original design somewhat lacking in color and decided to give it a m
 
 #### SPA vs routing
 
-While this project could be done as a single page application, I decided to use SvelteKit routing instead. This significantly increased its level of complexity so I am not sure if it was a good idea. On the other hand, I learned a lot about more advanced routing options like goto() which allows to open URLs programmatically and functions to trigger certain actions before and after navigating.
-The side-effect of implementing every step as a route is some boilerplate such as imports and functions for submitting the forms. I did not manage to make them reusable. If you have suggestions how to reduce repetition in my code, please share them in the comments.
+While this project could be done as a single-page application, I decided to use SvelteKit routing instead. This significantly increased its level of complexity so I am not sure if it was a good idea. On the other hand, I learned a lot about more advanced routing options like goto() which allows to open URLs programmatically and functions to trigger certain actions before and after navigating.
+
+The side-effect of implementing every step as a route is some boilerplate such as imports and functions for submitting the forms. I did not manage to make them reusable. If you have suggestions on how to reduce repetition in my code, please, share them in the comments.
 
 #### Form handling with Felte
 
-To manage form handling, I used Felte library. The drawback of sticking to less popular frameworks is that the choice of supporting libraries is relatively narrow, and the information about them leaves a lot to be desired. However, Felte covers all the functions I needed and provides detailed documentation, so eventually I figured out how to use it.
+To manage form handling, I used the Felte library. The drawback of sticking to less popular frameworks is that the choice of supporting libraries is relatively narrow, and the information about them leaves a lot to be desired. However, Felte covered all the functions I needed and provided detailed documentation, so eventually, I figured out how to use it.
 
 The design required to trigger form validation and submission upon navigating to a new page. Implementing this was by far the hardest part of the project. Fortunately, Svelte stores made state management not an issue.
 
 #### Active states and animations
 
-While most active elements on the pages have simple hover/focus states such as color change and glow, the design called for a sliding pointer to indicate the currently open page. I was hoping to use built-in Svelte animations but did not find anything that would suit my needs and implemented the animation from scratch.
+While most active elements on the pages have simple hover/focus states such as color change and glow, the design called for a sliding pointer to indicate the currently open page. I was hoping to use built-in Svelte animations but did not find anything that would suit my needs so implemented the animation from scratch.
 
 ***
 
 ### Continued development
 
-This project highlighted many aspects of SvelteKit and TypeScript I am yet to learn. However, it was a lot of work. I even feel a little burned out. Because of that, I am going to take a break from Frontend Mentor challenges and focus on other things such as web design.
+This project highlighted many aspects of SvelteKit and TypeScript I have yet to learn. However, it was a lot of work. I even feel a little burned out. Because of that, I am going to take a break from Frontend Mentor challenges and focus on other things such as web design.
 
 ### Useful resources
 

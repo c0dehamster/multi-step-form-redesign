@@ -5,10 +5,10 @@ export interface NavigationItem {
 }
 
 export interface UserData {
-	name?: string
-	email?: string
-	phoneNumber?: string
-	plan?: "arcade" | "advanced" | "pro"
-	billingScheme?: "monthly" | "yearly"
-	addOns?: Array<string>
+	name: string
+	email: string
+	phoneNumber: string
+	plan: "arcade" | "advanced" | "pro"
+	billingScheme: "monthly" | "yearly"
+	addOns: Array<string>
 }

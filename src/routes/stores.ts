@@ -15,7 +15,7 @@ const initialValues: UserData = {
 const createUserDataStore = (initialValues: UserData) => {
 	const { set, update, subscribe } = writable(initialValues)
 
-	const onSubmit = (values: UserData) => {
+	const onSubmit = (values: Object) => {
 		update((store) => {
 			return { ...store, ...values }
 		})

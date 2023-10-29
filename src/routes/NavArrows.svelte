@@ -50,6 +50,7 @@
 <style>
 	.nav-arrows {
 		width: 100%;
+		margin-block-start: 2rem;
 		padding-inline: 1rem;
 
 		display: grid;
@@ -98,6 +99,7 @@
 			left: 0;
 			right: 0;
 			transform: translateY(-50%);
+			margin: 0rem;
 		}
 
 		.nav-arrows__link {

@@ -71,13 +71,13 @@
 	as an argument to the callback of beforeNavigate. */
 
 	beforeNavigate(({ cancel }) => {
+		handleSubmit()
+
 		if (!$isValid) {
 			console.log("Navigation cancelled:", errorMessages)
 			cancel()
 			return
 		}
-
-		handleSubmit()
 	})
 </script>
 

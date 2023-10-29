@@ -71,12 +71,12 @@ Users should be able to:
 
 #### Design
 
-I found the original design somewhat lacking in color and decided to give it more vibrant color scheme. I also made some small adjustments like changing the next/back buttons and a new Success message. However, the main structure of the document remains the same, as I don’t see a way to improve it.
+I found the original design somewhat lacking in color and decided to give it a more vibrant color scheme. I also made some small adjustments like changing the next/back buttons and a new Success message. However, the main structure of the document remains the same, as I don’t see a way to improve it.
 
 #### SPA vs routing
 
 While this project could be done as a single page application, I decided to use SvelteKit routing instead. This significantly increased its level of complexity so I am not sure if it was a good idea. On the other hand, I learned a lot about more advanced routing options like goto() which allows to open URLs programmatically and functions to trigger certain actions before and after navigating.
-The side-effect of implementing every step as a route is some boilerplate such as imports and functions for submitting the forms. I did not manage to make them reusable. If you have suggestions how to reduce repetition in my code, please, share them in the comments.
+The side-effect of implementing every step as a route is some boilerplate such as imports and functions for submitting the forms. I did not manage to make them reusable. If you have suggestions how to reduce repetition in my code, please share them in the comments.
 
 #### Form handling with Felte
 

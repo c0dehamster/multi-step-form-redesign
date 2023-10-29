@@ -21,7 +21,7 @@
 		support@loremgaming.com.
 	</p>
 
-	<button class="button button--outline" on:click={reset}> Continue </button>
+	<button class="button" on:click={reset}> Continue </button>
 </div>
 
 <style>

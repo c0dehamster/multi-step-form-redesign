@@ -88,7 +88,6 @@
 
 <style>
 	.nav {
-		padding-inline: 2.5rem;
 		padding-block: 2rem;
 
 		display: grid;
@@ -111,6 +110,8 @@
 
 	.nav__list--pointer-active::before {
 		content: "";
+		/* Due to the glow extending far outside the actual shape,
+		the dimensions of the pointer are somewhat arbitrary */
 		height: 6rem;
 		width: 12rem;
 
@@ -174,6 +175,8 @@
 			min-width: 4rem;
 		}
 		.nav__list--pointer-active::before {
+			height: 5rem;
+			width: 6rem;
 			background-image: var(--pointer-mobile);
 		}
 

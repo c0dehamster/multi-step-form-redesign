@@ -88,6 +88,7 @@
 		}
 
 		.navigation {
+			/* Explicitly declaring grid-rows works here a bit like position: absolute */
 			grid-row: 1 / 2;
 		}
 
@@ -124,6 +125,8 @@
 
 			margin-block: 2.5rem;
 		}
+
+		/* Decorative corner elements */
 
 		.card::before,
 		.card::after {

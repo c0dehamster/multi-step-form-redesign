@@ -21,7 +21,7 @@
 		validate: (values) => {
 			/* Validates on input. Prevents form submission.
 			$errors is only updated upon submitting
-			hense errorMessages workaround */
+			hence errorMessages workaround */
 			const errors = {
 				name: "",
 				email: "",
@@ -46,8 +46,8 @@
 
 	const handleSubmit = createSubmitHandler()
 
-	/* The function to prevent routing has to be passed as an argument to
-	the callback of beforeNavigate. THat is strange */
+	/* The function to prevent routing has to be passed
+	as an argument to the callback of beforeNavigate. */
 
 	beforeNavigate(({ cancel }) => {
 		if (!$isValid) {
@@ -144,6 +144,8 @@
 	.label {
 		grid-area: label;
 		color: var(--_color);
+
+		transition: color 150ms ease-out;
 	}
 
 	.error {
@@ -167,11 +169,15 @@
 		border: none;
 		outline: none;
 		border-bottom: 1px solid var(--_color);
+
+		transition: border-color 150ms ease-out;
 	}
 
 	.input::placeholder {
 		color: var(--_color);
 		opacity: 0.25;
+
+		transition: color 150ms ease-out;
 	}
 
 	@media screen and (width > 40rem) {

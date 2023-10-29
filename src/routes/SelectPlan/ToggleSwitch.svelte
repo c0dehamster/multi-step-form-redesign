@@ -91,9 +91,15 @@
 		--_label-color: var(--color-active);
 	}
 
-	.billing-options__label::before {
+	.billing-options__label::before,
+	.billing-options__label::after,
+	.billing-options__switch::before,
+	.billing-options__switch::after {
 		content: "";
 		position: absolute;
+	}
+
+	.billing-options__label::before {
 		left: 50%;
 		right: 50%;
 		bottom: 0;
@@ -108,16 +114,13 @@
 		right: 0;
 	}
 
-	/* Workaround for the animated shadow */
-
 	.billing-options__label::after {
-		content: "";
-		position: absolute;
+		/* Workaround for the animated shadow */
+
 		inset: 0;
 
 		background-color: var(--color-active);
 		filter: blur(0.5rem);
-
 		opacity: 0;
 
 		transition: opacity 150ms ease-out;
@@ -137,6 +140,8 @@
 		justify-self: baseline;
 	}
 
+	/* The switch slider */
+
 	.billing-options__switch {
 		position: relative;
 
@@ -150,33 +155,14 @@
 		transition: border-color 200ms ease-out;
 	}
 
-	.billing-options__switch::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-
-		z-index: -1;
-
-		box-shadow: 0 0 1.5rem 0 hsl(308, 100%, 42%, 0.25),
-			inset 0 0 0.75rem 0 hsl(308, 100%, 42%, 0.25);
-
-		opacity: 0;
-		transition: opacity 200ms linear;
-	}
-
-	.billing-options__switch:hover::after {
-		opacity: 1;
-	}
-
 	.billing-options__switch:hover,
 	.billing-options__switch:focus-visible {
 		--_switch-color: var(--color-active);
 	}
 
-	.billing-options__switch::before {
-		content: "";
+	/* The thumb */
 
-		position: absolute;
+	.billing-options__switch::before {
 		top: 50%;
 		left: 0.2rem;
 		transform: translateY(-50%);
@@ -194,5 +180,23 @@
 
 	.billing-options__switch--option-2::before {
 		left: calc(100% - 1.2rem);
+	}
+
+	/* The animated shadow */
+
+	.billing-options__switch::after {
+		inset: 0;
+
+		z-index: -1;
+
+		box-shadow: 0 0 1.5rem 0 hsl(308, 100%, 42%, 0.25),
+			inset 0 0 0.75rem 0 hsl(308, 100%, 42%, 0.25);
+
+		opacity: 0;
+		transition: opacity 200ms linear;
+	}
+
+	.billing-options__switch:hover::after {
+		opacity: 1;
 	}
 </style>

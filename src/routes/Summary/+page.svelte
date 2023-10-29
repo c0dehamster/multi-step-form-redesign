@@ -77,6 +77,8 @@
 		display: grid;
 	}
 
+	/* Plan */
+
 	.plan {
 		grid-template-areas:
 			"name price"
@@ -113,6 +115,8 @@
 		font-weight: var(--font-weight-bold);
 	}
 
+	/* Add-ons list*/
+
 	.add-ons {
 		gap: 1rem;
 
@@ -125,6 +129,8 @@
 		align-items: center;
 	}
 
+	/* Total */
+
 	.total {
 		display: flex;
 		justify-content: space-between;
@@ -132,6 +138,8 @@
 
 		font-weight: var(--font-weight-bold);
 	}
+
+	/* Neon button */
 
 	.button {
 		margin-inline: 1.5rem;
@@ -153,7 +161,6 @@
 	.button__contents {
 		width: 100%;
 		height: 3rem;
-		/* z-index: 1; */
 
 		display: inline-flex;
 		justify-content: center;
@@ -194,11 +201,6 @@
 			padding: 2.5rem;
 		}
 
-		.plan {
-			grid-template-columns: auto 1fr 1fr;
-			grid-template-areas: "name change price";
-		}
-
 		.plan__name,
 		.plan__price,
 		.total {
@@ -212,15 +214,6 @@
 		.button {
 			justify-self: end;
 			width: 12.5rem;
-		}
-	}
-
-	@media screen and (width > 50rem) {
-		.plan {
-			grid-template-columns: auto 1fr;
-			grid-template-areas:
-				"name price"
-				"change price";
 		}
 	}
 </style>

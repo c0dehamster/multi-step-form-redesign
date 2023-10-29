@@ -85,7 +85,7 @@
 	.nav-arrows__icon path {
 		fill: var(--_nav-arrow-color);
 
-		transition: fill 100ms ease-in;
+		transition: fill 150ms ease-out;
 	}
 
 	.nav-arrows__link:hover,

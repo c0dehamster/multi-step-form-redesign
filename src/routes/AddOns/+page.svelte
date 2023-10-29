@@ -76,6 +76,8 @@
 		gap: 1.5rem;
 	}
 
+	/* Individual card */
+
 	.card {
 		position: relative;
 
@@ -125,6 +127,14 @@
 		opacity: 0.5;
 	}
 
+	.card__description {
+		/* To prevent line break */
+		min-width: max-content;
+		grid-area: description;
+	}
+
+	/* The custom checkbox */
+
 	.card__checkbox {
 		position: relative;
 		grid-area: checkbox;
@@ -139,7 +149,7 @@
 	.card__checkbox::before {
 		content: "";
 		position: absolute;
-		/* Due to the shadow the SVG is much larger than the checmark itself */
+		/* Due to the shadow the SVG is much larger than the checkmark itself */
 		inset: -1.75rem -1.5rem -1.25rem -1.5rem;
 		z-index: 2;
 		background-image: var(--icon-checkmark);
@@ -152,12 +162,6 @@
 
 	.card__checkbox--checked::before {
 		opacity: 1;
-	}
-
-	.card__description {
-		/* To prevent line break */
-		min-width: max-content;
-		grid-area: description;
 	}
 
 	@media (width < 40rem) {

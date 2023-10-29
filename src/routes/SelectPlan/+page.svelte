@@ -59,7 +59,7 @@
 		<ul class="form__radio-cards">
 			{#each plans as plan}
 				<!-- Felte takes an array of objects to create a field array.
-			For radio buttons, unique IDs are required -->
+				For radio buttons, unique IDs are required -->
 
 				<li class="card">
 					<label for={plan.id} class="card__contents">
@@ -143,14 +143,13 @@
 	}
 
 	.card__title-wrapper {
+		position: relative;
 		height: 100%;
 		padding-inline: 1.25rem 0.5rem;
 
 		grid-area: title;
 		display: grid;
 		align-items: center;
-
-		position: relative;
 	}
 
 	.card__title-wrapper::before {
@@ -221,8 +220,8 @@
 		opacity: 1;
 	}
 
-	/* Container queries seem to be messing up hot reloading nith Vite.
-	Manual refreshing might be required */
+	/* Container queries seem to be messing up hot reloading with Vite.
+	Manual refreshing might be required after resizing */
 
 	@media (width < 40rem) {
 		.form__radio-cards {
@@ -271,6 +270,8 @@
 		.card__bonus {
 			padding-inline-start: 1rem;
 		}
+
+		/* Radio button */
 
 		.card__circle {
 			width: 1.5rem;

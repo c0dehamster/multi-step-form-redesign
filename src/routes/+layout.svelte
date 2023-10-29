@@ -94,6 +94,7 @@
 
 		.card {
 			padding-inline: 5rem;
+
 			margin-block: 7.5rem;
 			grid-row: 1 / 3;
 

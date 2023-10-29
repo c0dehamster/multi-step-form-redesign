@@ -36,12 +36,12 @@
 			A real sign-up form would require a more strict one */
 			const regex = /^\w+@\w+\.\w+$/
 
-			if (values.name === "") errors.name.push("Cannot be empty")
-			if (values.email === "") errors.email.push("Cannot be empty")
+			if (values.name === "") errors.name.push("This field is required")
+			if (values.email === "") errors.email.push("This field is required")
 			if (!regex.test(values.email))
 				errors.email.push("Please enter a valid email")
 			if (values.phoneNumber === "")
-				errors.phoneNumber.push("Cannot be empty")
+				errors.phoneNumber.push("This field is required")
 
 			errorMessages = {
 				name: errors.name[0] || "",
@@ -151,7 +151,7 @@
 		grid-template-areas:
 			"label error"
 			"input input";
-		gap: 0.5rem;
+		gap: 0.25rem;
 
 		--_color: var(--color-text-main);
 	}
